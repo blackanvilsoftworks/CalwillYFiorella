@@ -1,4 +1,5 @@
 const contacForm = document.getElementById('contact-form');
+const toWhatsappBtn = document.getElementById('whatsapp-btn');
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneNumberRegex = /^[0-9]{10}$/;
 const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños
@@ -14,15 +15,12 @@ contacForm.addEventListener('submit', function(e) {
     const cleanedPjoneNumber = phoneNumberValidation(inputPhoneNumber);
     const cleanedMessage = messageValidation(inputMessage);
 
-    if (cleanedName && cleanedPjoneNumber && cleanedMessage) {
-        const whatsappNumber = '5491131883555';
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(cleanedName)}.%20Mi%20número%20de%20teléfono%20es%20${encodeURIComponent(cleanedPjoneNumber)}.%20${encodeURIComponent(cleanedMessage)}`;
-        window.open(whatsappURL, '_blank');
-        contacForm.reset();
-    } else {
-        console.log('Error en la validación del formulario.');
-    }    
+    if (!cleanedName || !cleanedPjoneNumber || !cleanedMessage) {
+        return;
+    }
 
+    contacForm.reset();
+    this.submit(); // Esto activa FormSubmit
 });
 
 const nameValidation = (inputName) => {
@@ -51,3 +49,13 @@ const messageValidation = (inputMessage) => {
     }
     return cleanedMessage; 
 };
+
+
+toWhatsappBtn.addEventListener('click', () => {
+    const whatsappName = "NOMBRE_AQUI"; // Reemplaza con el nombre que desees
+    const whatsappMessage = "MENSAJE_AQUI"; // Reemplaza con el mensaje que desees
+    const whatsappNumber = '5491131883555';
+    const whatsappURL = 
+        `https://wa.me/${whatsappNumber}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, '_blank');
+});

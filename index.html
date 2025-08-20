@@ -243,18 +243,24 @@
             <i class="bi bi-mailbox-flag"></i>
         </h2>
         <div class="row">
-            <form id="contact-form">
+            <form id="contact-form" action="https://formsubmit.co/0174b80241b0dd7c9e1c0db7161a7aa0" method="POST">
+                <!-- Campos ocultos de FormSubmit -->
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
+                <input type="hidden" name="_template" value="table">
+                <!--<input type="hidden" name="_next" value="https://tusitio.com/gracias.html">-->
+                <input type="hidden" name="_captcha" value="false">
+                
                 <div class="col-6 mb-3">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nombre" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
                 </div>
                 <div class="col-6 mb-3">
                     <label for="phone-number" class="form-label">Número de Teléfono</label>
-                    <input type="phone-number" class="form-control" id="phone-number" placeholder="Sin espacios ni guiones 1122223333" required>
+                    <input type="phone-number" name="phone-number" class="form-control" id="phone-number" placeholder="Sin espacios ni guiones 1122223333" required>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="message" class="form-label">Mensaje</label>
-                    <textarea class="form-control" id="message" rows="3" placeholder="Recibirá una respuesta vía WhatsApp lo más pronto posible." required></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="3" placeholder="Recibirá una respuesta vía WhatsApp lo más pronto posible." required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
@@ -265,18 +271,20 @@
     <footer class="text-center mt-5">
         <div class="container">
             <div class="row mb-3 pt-3">
-                <div class="col-4"></div>
-                <div class="col-2">
-                    <a href="https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr" target="_blank" class="me-4">
-                        <i class="bi bi-facebook"></i> Facebook
-                    </a>
+                <div class="col-3"></div>
+                <div class="col-3">
+                    <button type="button" id="facebook-btn">
+                        <a href="https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr" target="_blank" class="me-4">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                    </button>
                 </div>
-                <div class="col-2">
-                    <a href="https://api.whatsapp.com/send?phone=5491159590586" target="_blank">
+                <div class="col-3">
+                    <button type="button" id="whatsapp-btn">
                         <i class="bi bi-whatsapp"></i> +54 9 11-5959-0586 
-                    </a>
+                    </button>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-3"></div>
             </div>
             <div class="row">
                 <hr>
