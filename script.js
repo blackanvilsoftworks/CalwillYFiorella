@@ -19,8 +19,8 @@ contacForm.addEventListener('submit', function(e) {
         return;
     }
 
-    contacForm.reset();
     this.submit(); // Esto activa FormSubmit
+    contacForm.reset();
 });
 
 const nameValidation = (inputName) => {
@@ -54,8 +54,7 @@ const messageValidation = (inputMessage) => {
 toWhatsappBtn.addEventListener('click', () => {
     const whatsappName = "NOMBRE_AQUI"; // Reemplaza con el nombre que desees
     const whatsappMessage = "MENSAJE_AQUI"; // Reemplaza con el mensaje que desees
-    const whatsappNumber = '5491131883555';
-    const whatsappURL = 
-        `https://wa.me/${whatsappNumber}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
+    const whatsappNumber = '5491159590586';
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
 });
