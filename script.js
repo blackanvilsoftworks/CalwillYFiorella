@@ -1,5 +1,6 @@
 const contacForm = document.getElementById('contact-form');
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
+const toFacebookBtn = document.getElementById('facebook-btn');
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneNumberRegex = /^[0-9]{10}$/;
 const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños
@@ -50,6 +51,10 @@ const messageValidation = (inputMessage) => {
     return cleanedMessage; 
 };
 
+toFacebookBtn.addEventListener('click', () => {
+    const facebookURL = 'https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr';
+    window.open(facebookURL, '_blank');
+});
 
 toWhatsappBtn.addEventListener('click', () => {
     const whatsappName = "NOMBRE_AQUI"; // Reemplaza con el nombre que desees
