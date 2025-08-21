@@ -6,6 +6,24 @@
   --dark-color: #313638;
 }
 
+
+
+/*Buttons*/
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+
+
 /*Titles*/
 .titles{
   font-family: 'Borel';
@@ -33,6 +51,8 @@
   font-family: 'Borel';
 }
 
+
+
 /*Navbar*/
 .navbar, footer{
   background-color: rgb(250, 235, 214);/* Color de fondo claro */
@@ -46,17 +66,51 @@
   letter-spacing: 1px; /* Espaciado opcional para mejor legibilidad */
 }
 
-/*Carousel*/
-.carousel-item{
-  max-height: 500px;
+
+
+/*Hero Section*/
+.hero-section {
+  /*
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+  */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1)), url('./assets/carousel_img_1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  /*color: black;*/
+  padding: 100px 0;
+  text-align: center;
 }
 
-.carousel-item img {
-  width: 100%;       /* Ocupa el 100% del ancho disponible */
-  height: auto;      /* Mantiene la proporción de la imagen */
-  object-fit: contain; /* Asegura que toda la imagen sea visible sin recortar */
-  max-height: 500px; /* Limita la altura máxima */
+
+
+/*About Us Section*/
+#about-us-container {
+  background-color: rgb(248, 246, 233); /* Color de fondo claro */
+  padding: 50px 0; /* Espaciado superior e inferior */
 }
+
+/*Feature Section*/
+.feature-box {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+        
+.feature-box:hover {
+  transform: translateY(-10px);
+}
+        
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+
 
 /*Products*/
 .product-card {
@@ -82,20 +136,33 @@
   overflow: hidden;
 }
 
-/*About Us Section*/
-#about-us-container {
-  background-color: rgb(248, 246, 233); /* Color de fondo claro */
-  padding: 50px 0; /* Espaciado superior e inferior */
+/*Products > Carousel*/
+.carousel-item{
+  width: 100%;
+  max-height: 500px;
 }
 
-/*resale-container*/
-#resale-container {
-  background-color: rgb(248, 246, 233); /* Color de fondo claro */
+.carousel-item img {
+  width: 100%;       /* Ocupa el 100% del ancho disponible */
+  height: auto;      /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Asegura que toda la imagen sea visible sin recortar */
+  max-height: 500px; /* Limita la altura máxima */
 }
+
+
+
+
+
 
 /*Shipping Container*/
 
+
+
+
 /*Pay Methods*/
+
+
+
 
 /*Contact Form*/
 #contact-form-container {
@@ -108,54 +175,9 @@
   flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
 }
 
-.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  padding: 10px 25px;
-  border-radius: 30px;
-  font-weight: 600;
-}
 
 
-.btn-primary:hover {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
-}
-
-.hero-section {
-  /*
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
-  */
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1)), url('./assets/carousel_img_1.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  /*color: black;*/
-  padding: 100px 0;
-  text-align: center;
-}
-
-
-
-.feature-box {
-  text-align: center;
-  padding: 30px 20px;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
-}
-        
-.feature-box:hover {
-  transform: translateY(-10px);
-}
-        
-.feature-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-}
-        
+     
 footer {
   background-color: var(--dark-color);
   color: white;
