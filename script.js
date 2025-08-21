@@ -13,15 +13,20 @@ contacForm.addEventListener('submit', function(e) {
     const inputMessage = document.getElementById('message');
 
     const cleanedName = nameValidation(inputName);
-    const cleanedPjoneNumber = phoneNumberValidation(inputPhoneNumber);
+    const cleanedPhoneNumber = phoneNumberValidation(inputPhoneNumber);
     const cleanedMessage = messageValidation(inputMessage);
 
-    if (!cleanedName || !cleanedPjoneNumber || !cleanedMessage) {
+    if (!cleanedName || !cleanedPhoneNumber || !cleanedMessage) {
         return;
     }
 
+    whatsappLinkPhoneNumber = ` Link al WhatsApp: https://wa.me/549${cleanedPhoneNumber}`;
+    
+    inputMessage.value += whatsappLinkPhoneNumber;
+    
     this.submit(); // Esto activa FormSubmit
     contacForm.reset();
+    alert('Formulario enviado con éxito.');
 });
 
 const nameValidation = (inputName) => {
@@ -39,6 +44,7 @@ const phoneNumberValidation = (inputPhoneNumber) => {
         alert('El número de teléfono no puede contener espacios ni guines, y debe tener 10 caracteres.');
         return false;
     }
+    
     return cleanedPhoneNumber; 
 };
 
