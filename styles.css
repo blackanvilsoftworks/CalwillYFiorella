@@ -4,22 +4,24 @@
   --accent-color: #ed9b40;
   --light-color: #f6f5f5;
   --dark-color: #313638;
+  --btn-primary-color: #ed9b40;
+  --btn-hover-color: #69db1d;
 }
 
 
 
 /*Buttons*/
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--btn-primary-color);
+  border-color: var(--btn-primary-color);
   padding: 10px 25px;
   border-radius: 30px;
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  background-color: var(--btn-hover-color);
+  border-color: var(--btn-hover-color);
 }
 
 
