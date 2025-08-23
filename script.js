@@ -21,6 +21,7 @@ contacForm.addEventListener('submit', function(e) {
     }
 
     whatsappLinkPhoneNumber = ` Link al WhatsApp: https://wa.me/549${cleanedPhoneNumber}`;
+    //whatsappLinkPhoneNumber = `https://wa.me/549${cleanedPhoneNumber}`;
 
     /*
     const message = `Hola,%20soy%20${encodeURIComponent(name)}.%20Te%20contacto%20desde%20la%20web%20de%20Calwill%20%26%20Fiorella`;
@@ -28,8 +29,12 @@ contacForm.addEventListener('submit', function(e) {
     const whatsappLink = `https://wa.me/54${phone}?text=${message}`;
     */
     
-    inputMessage.value += whatsappLinkPhoneNumber;
+    //inputMessage.value += whatsappLinkPhoneNumber;
     
+    inputName.value = cleanedName;
+    inputPhoneNumber.value = cleanedPhoneNumber;
+    inputMessage.value = cleanedMessage + whatsappLinkPhoneNumber;
+
     this.submit(); // Esto activa FormSubmit
     contacForm.reset();
     alert('Formulario enviado con éxito.');
