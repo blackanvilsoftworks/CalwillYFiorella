@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Responsividad con Bootstrap</title>
+    <title>Instalar Vite - Guía Completa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         :root {
             --primary: #3b82f6;
@@ -22,7 +23,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
@@ -55,34 +56,6 @@
             padding: 15px 20px;
         }
         
-        .breakpoint-card {
-            border-left: 4px solid var(--primary);
-        }
-        
-        .breakpoint-header {
-            background-color: #f8f9fa;
-            padding: 10px 15px;
-            font-weight: 600;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .breakpoint-body {
-            padding: 15px;
-        }
-        
-        .example-box {
-            background-color: #e9ecef;
-            border: 2px dashed #6c757d;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 15px;
-            text-align: center;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
         .code-block {
             background: #1f2937;
             color: #e5e7eb;
@@ -95,37 +68,72 @@
             line-height: 1.5;
         }
         
-        .breakpoint-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .breakpoint-table th, .breakpoint-table td {
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
             padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .breakpoint-table th {
             background: #f9fafb;
-            font-weight: 600;
+            border-radius: 8px;
         }
         
-        .breakpoint-table tr:hover {
-            background: #f3f4f6;
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
         }
         
-        .responsive-demo {
+        .terminal {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        .terminal .prompt {
+            color: #a6e22e;
+        }
+        
+        .terminal .command {
+            color: #f8f8f2;
+            margin-left: 5px;
+        }
+        
+        .file-structure {
             background: #f0f9ff;
             border-left: 4px solid var(--primary);
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
+            font-family: 'Courier New', monospace;
         }
         
-        .device-icon {
-            font-size: 1.5rem;
+        .benefits-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .benefit-icon {
+            color: var(--success);
             margin-right: 10px;
         }
     </style>
@@ -133,341 +141,245 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="bi bi-grid-3x3-gap"></i> Guía de Responsividad con Bootstrap</h1>
-            <p class="lead">Cómo usar correctamente las clases col-* para diseño responsive</p>
+            <h1><i class="bi bi-lightning-charge"></i> Instalar Vite en tu Proyecto</h1>
+            <p class="lead">Guía completa para configurar Vite y acelerar tu desarrollo frontend</p>
         </div>
 
         <div class="content">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-info-circle"></i> Puntos de quiebre (Breakpoints) de Bootstrap</h4>
+                    <h4 class="mb-0"><i class="bi bi-info-circle"></i> ¿Qué es Vite?</h4>
                 </div>
                 <div class="card-body">
-                    <p>Bootstrap utiliza 6 breakpoints principales. Debes elegir las clases según el dispositivo objetivo:</p>
-                    
-                    <table class="breakpoint-table">
-                        <thead>
-                            <tr>
-                                <th>Breakpoint</th>
-                                <th>Clase</th>
-                                <th>Dimensiones</th>
-                                <th>Dispositivo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Extra small</td>
-                                <td><code class="bg-primary text-white p-1">.col-</code></td>
-                                <td>&lt;576px</td>
-                                <td>Teléfonos móviles pequeños</td>
-                            </tr>
-                            <tr>
-                                <td>Small</td>
-                                <td><code class="bg-success text-white p-1">.col-sm-</code></td>
-                                <td>≥576px</td>
-                                <td>Teléfonos móviles</td>
-                            </tr>
-                            <tr>
-                                <td>Medium</td>
-                                <td><code class="bg-info text-dark p-1">.col-md-</code></td>
-                                <td>≥768px</td>
-                                <td>Tablets</td>
-                            </tr>
-                            <tr>
-                                <td>Large</td>
-                                <td><code class="bg-warning text-dark p-1">.col-lg-</code></td>
-                                <td>≥992px</td>
-                                <td>Laptops</td>
-                            </tr>
-                            <tr>
-                                <td>Extra large</td>
-                                <td><code class="bg-danger text-white p-1">.col-xl-</code></td>
-                                <td>≥1200px</td>
-                                <td>Pantallas grandes</td>
-                            </tr>
-                            <tr>
-                                <td>XXL</td>
-                                <td><code class="bg-dark text-white p-1">.col-xxl-</code></td>
-                                <td>≥1400px</td>
-                                <td>Pantallas extra grandes</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-code-slash"></i> Estrategias para elegir las clases</h4>
-                </div>
-                <div class="card-body">
-                    <h5>1. Enfoque mobile-first (Recomendado)</h5>
-                    <p>Bootstrap utiliza un enfoque mobile-first, lo que significa que:</p>
-                    <ul>
-                        <li>Primero diseñas para móviles (clases <code>.col-</code>)</li>
-                        <li>Luego agregas ajustes para pantallas más grandes</li>
+                    <p>Vite (del francés "rápido") es una herramienta de construcción frontend que ofrece:</p>
+                    <ul class="benefits-list">
+                        <li><i class="bi bi-lightning benefit-icon"></i> <strong>Servidor de desarrollo ultrarrápido</strong></li>
+                        <li><i class="bi bi-arrow-clockwise benefit-icon"></i> <strong>HMR (Hot Module Replacement) instantáneo</strong></li>
+                        <li><i class="bi bi-box-seam benefit-icon"></i> <strong>Build optimizado para producción</strong></li>
+                        <li><i class="bi bi-gear benefit-icon"></i> <strong>Configuración sencilla</strong></li>
                     </ul>
-                    
-                    <div class="code-block">
-<!-- Ejemplo: Mobile-first -->
-<div class="row">
-    <!-- En móvil: 12 columnas (ocupa todo el ancho) -->
-    <!-- En tablets y mayores: 6 columnas -->
-    <div class="col-12 col-md-6">
-        <div class="example-box">Contenido 1</div>
-    </div>
-    
-    <!-- En móvil: 12 columnas (ocupa todo el ancho) -->
-    <!-- En tablets y mayores: 6 columnas -->
-    <div class="col-12 col-md-6">
-        <div class="example-box">Contenido 2</div>
-    </div>
-</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-terminal"></i> Instalación de Vite</h4>
+                </div>
+                <div class="card-body">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Abre tu terminal</strong> y navega hasta la carpeta de tu proyecto
+                        </div>
                     </div>
                     
-                    <h5 class="mt-4">2. Ejemplo práctico según dispositivos objetivo</h5>
-                    <div class="code-block">
-<!-- Para diferentes dispositivos -->
-<div class="row">
-    <!-- 
-    Móviles: 12 columnas (100% ancho)
-    Tablets: 6 columnas (50% ancho)  
-    Laptops+: 4 columnas (33.3% ancho)
-    -->
-    <div class="col-12 col-sm-6 col-lg-4">
-        <div class="example-box">Producto 1</div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-        <div class="example-box">Producto 2</div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-        <div class="example-box">Producto 3</div>
-    </div>
-</div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Ejecuta el comando para crear un proyecto Vite</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm create vite@latest</span>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Sigue las instrucciones interactivas:</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal">
+                        <span class="prompt">√</span><span class="command"> Project name: » mi-proyecto</span><br>
+                        <span class="prompt">√</span><span class="command"> Select a framework: » Vanilla (o elige React, Vue, etc.)</span><br>
+                        <span class="prompt">√</span><span class="command"> Select a variant: » JavaScript (o TypeScript)</span>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Navega al directorio del proyecto e instala las dependencias:</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">cd mi-proyecto</span><br>
+                        <span class="prompt">$</span><span class="command">npm install</span>
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-phone"></i> Ejemplos por tipo de dispositivo</h4>
+                    <h4 class="mb-0"><i class="bi bi-folder2-open"></i> Estructura de archivos después de instalar Vite</h4>
                 </div>
                 <div class="card-body">
-                    <div class="breakpoint-card">
-                        <div class="breakpoint-header">
-                            <i class="bi bi-phone device-icon"></i> Para móviles (≤576px)
-                        </div>
-                        <div class="breakpoint-body">
-                            <p>Usa <code>.col-*</code> para controlar el layout en móviles:</p>
-                            <div class="code-block">
-<div class="row">
-    <!-- En móviles: 1 columna (12 unidades) -->
-    <div class="col-12">
-        <div class="example-box">Header</div>
-    </div>
-    
-    <!-- En móviles: 2 columnas (6 unidades cada una) -->
-    <div class="col-6">
-        <div class="example-box">Menú</div>
-    </div>
-    <div class="col-6">
-        <div class="example-box">Sidebar</div>
-    </div>
-</div>
-                            </div>
-                        </div>
+                    <div class="file-structure">
+                        mi-proyecto/<br>
+                        ├── node_modules/<br>
+                        ├── public/<br>
+                        │   └── vite.svg<br>
+                        ├── src/<br>
+                        │   ├── assets/<br>
+                        │   ├── App.css<br>
+                        │   ├── App.js<br>
+                        │   ├── index.css<br>
+                        │   └── main.js<br>
+                        ├── index.html<br>
+                        ├── package.json<br>
+                        ├── vite.config.js<br>
+                        └── ...
                     </div>
                     
-                    <div class="breakpoint-card mt-3">
-                        <div class="breakpoint-header">
-                            <i class="bi bi-tablet device-icon"></i> Para tablets (≥768px)
-                        </div>
-                        <div class="breakpoint-body">
-                            <p>Usa <code>.col-md-*</code> para tablets:</p>
-                            <div class="code-block">
-<div class="row">
-    <!-- En móviles: 12 columnas, en tablets+: 4 columnas -->
-    <div class="col-12 col-md-4">
-        <div class="example-box">Servicio 1</div>
-    </div>
-    <div class="col-12 col-md-4">
-        <div class="example-box">Servicio 2</div>
-    </div>
-    <div class="col-12 col-md-4">
-        <div class="example-box">Servicio 3</div>
-    </div>
-</div>
-                            </div>
-                        </div>
+                    <p>El archivo <code>index.html</code> ahora es el punto de entrada de tu aplicación, y Vite inyectará automáticamente los scripts necesarios.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-play-circle"></i> Comandos principales de Vite</h4>
+                </div>
+                <div class="card-body">
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm run dev</span><br>
+                        <span class="comment"># Inicia el servidor de desarrollo en http://localhost:5173</span>
                     </div>
                     
-                    <div class="breakpoint-card mt-3">
-                        <div class="breakpoint-header">
-                            <i class="bi bi-laptop device-icon"></i> Para laptops (≥992px)
-                        </div>
-                        <div class="breakpoint-body">
-                            <p>Usa <code>.col-lg-*</code> para laptops:</p>
-                            <div class="code-block">
-<div class="row">
-    <!-- 
-    Móviles: 12 columnas (100%)
-    Tablets: 6 columnas (50%)
-    Laptops+: 3 columnas (25%)
-    -->
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="example-box">Característica 1</div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="example-box">Característica 2</div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="example-box">Característica 3</div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="example-box">Característica 4</div>
-    </div>
-</div>
-                            </div>
-                        </div>
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm run build</span><br>
+                        <span class="comment"># Construye la versión para producción en la carpeta 'dist'</span>
+                    </div>
+                    
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm run preview</span><br>
+                        <span class="comment"># Previsualiza la versión de producción localmente</span>
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-layout-text-window"></i> Patrones comunes de layout</h4>
+                    <h4 class="mb-0"><i class="bi bi-gear"></i> Configuración adicional para proyectos existentes</h4>
                 </div>
                 <div class="card-body">
-                    <h5>1. Layout típico de blog/ecommerce</h5>
-                    <div class="code-block">
-<div class="row">
-    <!-- Header: siempre 12 columnas -->
-    <div class="col-12">
-        <header>Header</header>
-    </div>
-    
-    <!-- 
-    Sidebar: 
-    - Móviles: 12 columnas (debajo del contenido)
-    - Tablets+: 3 columnas
-    -->
-    <div class="col-12 col-md-3 order-md-1 order-2">
-        <aside>Sidebar</aside>
-    </div>
-    
-    <!-- 
-    Contenido principal: 
-    - Móviles: 12 columnas (primero en el orden)
-    - Tablets+: 9 columnas
-    -->
-    <div class="col-12 col-md-9 order-md-2 order-1">
-        <main>Contenido principal</main>
-    </div>
-    
-    <!-- Footer: siempre 12 columnas -->
-    <div class="col-12">
-        <footer>Footer</footer>
-    </div>
-</div>
+                    <p>Si ya tienes un proyecto y quieres agregar Vite manualmente:</p>
+                    
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Instala Vite como dependencia de desarrollo:</strong>
+                        </div>
                     </div>
                     
-                    <h5 class="mt-4">2. Galería de productos responsive</h5>
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm install --save-dev vite</span>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Crea un archivo vite.config.js en la raíz:</strong>
+                        </div>
+                    </div>
+                    
                     <div class="code-block">
-<div class="row">
-    <!-- 
-    Móviles: 1 producto por fila (12/12 = 100%)
-    Tablets: 2 productos por fila (6/12 = 50%)
-    Laptops: 3 productos por fila (4/12 = 33.3%)
-    Desktop: 4 productos por fila (3/12 = 25%)
-    -->
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card">Producto 1</div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card">Producto 2</div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card">Producto 3</div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card">Producto 4</div>
-    </div>
-</div>
+// vite.config.js
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  // Configuración específica de tu proyecto
+  server: {
+    port: 3000, // Puerto personalizado
+  },
+  build: {
+    outDir: 'dist', // Carpeta de salida para build
+  }
+})
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Actualiza tu package.json con los scripts de Vite:</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+// package.json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Asegúrate de que tu index.html tenga esta estructura:</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Proyecto&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+    &lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-lightbulb"></i> Consejos y mejores prácticas</h4>
+                    <h4 class="mb-0"><i class="bi bi-plugin"></i> Plugins útiles para Vite</h4>
                 </div>
                 <div class="card-body">
-                    <div class="responsive-demo">
-                        <h5><i class="bi bi-check-circle"></i> Recomendaciones generales:</h5>
-                        <ul>
-                            <li>Comienza con el diseño para móviles primero (<strong>mobile-first</strong>)</li>
-                            <li>Usa <code>.col-*</code> sin breakpoint para móviles, luego agrega breakpoints para pantallas más grandes</li>
-                            <li>Prueba tu diseño en todos los breakpoints</li>
-                            <li>Utiliza las clases de utilidad de Bootstrap para márgenes, padding y visibilidad responsive</li>
-                            <li>Considera el contenido: no forces demasiadas columnas en móviles</li>
-                        </ul>
+                    <p>Puedes extender la funcionalidad de Vite con plugins:</p>
+                    
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm install --save-dev @vitejs/plugin-react</span><br>
+                        <span class="comment"># Para proyectos React</span>
                     </div>
                     
-                    <h5 class="mt-4">Ejemplo de una sección completamente responsive:</h5>
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm install --save-dev vite-plugin-pwa</span><br>
+                        <span class="comment"># Para Progressive Web Apps</span>
+                    </div>
+                    
+                    <div class="terminal">
+                        <span class="prompt">$</span><span class="command">npm install --save-dev rollup-plugin-purgecss</span><br>
+                        <span class="comment"># Para eliminar CSS no utilizado</span>
+                    </div>
+                    
+                    <p>Luego configúralos en tu <code>vite.config.js</code>:</p>
+                    
                     <div class="code-block">
-<!-- Sección de servicios responsive -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5">Nuestros Servicios</h2>
-        <div class="row">
-            <!-- 
-            - Móviles: 1 columna (12/12)
-            - Tablets: 2 columnas (6/12) 
-            - Desktop: 3 columnas (4/12)
-            -->
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5>Servicio 1</h5>
-                        <p>Descripción del servicio</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5>Servicio 2</h5>
-                        <p>Descripción del servicio</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5>Servicio 3</h5>
-                        <p>Descripción del servicio</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
                     </div>
                 </div>
             </div>
 
-            <div class="alert alert-info">
-                <h4><i class="bi bi-lightbulb"></i> Resumen final</h4>
-                <p>Para hacer tu página responsive con Bootstrap:</p>
-                <ol>
-                    <li>Comienza con <code>.col-*</code> para móviles</li>
-                    <li>Añade <code>.col-sm-*</code> para phones ≥576px</li>
-                    <li>Añade <code>.col-md-*</code> para tablets ≥768px</li>
-                    <li>Añade <code>.col-lg-*</code> para laptops ≥992px</li>
-                    <li>Añade <code>.col-xl-*</code> para desktops ≥1200px</li>
-                    <li>Añade <code>.col-xxl-*</code> para pantallas ≥1400px</li>
-                </ol>
-                <p class="mb-0">La clave es probar en diferentes dispositivos y ajustar según sea necesario.</p>
+            <div class="alert alert-success">
+                <h4><i class="bi bi-check-circle"></i> ¡Listo! Vite está instalado</h4>
+                <p>Ahora puedes ejecutar <code>npm run dev</code> para iniciar el servidor de desarrollo y disfrutar de builds ultrarrápidos.</p>
+                <p class="mb-0">Vite recargará automáticamente tu aplicación cuando detecte cambios en los archivos, lo que acelera significativamente tu flujo de trabajo de desarrollo.</p>
             </div>
         </div>
     </div>
