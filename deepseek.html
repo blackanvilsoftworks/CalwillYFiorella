@@ -3,384 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalar Vite - Guía Completa</title>
+    <title>Centrar texto en botones Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        :root {
-            --primary: #3b82f6;
-            --secondary: #2563eb;
-            --accent: #f59e0b;
-            --light: #f3f4f6;
-            --dark: #1f2937;
-        }
-        
         body {
+            background-color: #f8f9fa;
+            padding: 20px;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            color: #374151;
-            padding: 20px;
         }
-        
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
+            background-color: white;
+            border-radius: 10px;
             padding: 30px;
-            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
         }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
-        
-        .card-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border-radius: 12px 12px 0 0 !important;
-            padding: 15px 20px;
-        }
-        
-        .code-block {
-            background: #1f2937;
-            color: #e5e7eb;
+        .example-box {
+            margin-bottom: 30px;
             padding: 20px;
             border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            background-color: #f8f9fa;
+            border-left: 4px solid #0d6efd;
         }
-        
-        .step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 12px;
-            background: #f9fafb;
-            border-radius: 8px;
+        .btn-demo {
+            margin: 10px 5px;
+            min-width: 120px;
         }
-        
-        .step-number {
-            background: var(--primary);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-weight: bold;
-        }
-        
-        .terminal {
-            background: #2d2d2d;
+        .code-block {
+            background-color: #2d2d2d;
             color: #f8f8f2;
             padding: 15px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
+            border-radius: 5px;
             margin: 15px 0;
-        }
-        
-        .terminal .prompt {
-            color: #a6e22e;
-        }
-        
-        .terminal .command {
-            color: #f8f8f2;
-            margin-left: 5px;
-        }
-        
-        .file-structure {
-            background: #f0f9ff;
-            border-left: 4px solid var(--primary);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
             font-family: 'Courier New', monospace;
+            overflow-x: auto;
         }
-        
-        .benefits-list {
-            list-style-type: none;
-            padding: 0;
+        h2 {
+            color: #0d6efd;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
-        
-        .benefits-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .benefits-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .benefit-icon {
-            color: var(--success);
-            margin-right: 10px;
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1><i class="bi bi-lightning-charge"></i> Instalar Vite en tu Proyecto</h1>
-            <p class="lead">Guía completa para configurar Vite y acelerar tu desarrollo frontend</p>
+        <h1 class="text-center mb-4">Centrar texto en botones Bootstrap</h1>
+        <p class="lead text-center">Guía completa para alinear texto vertical y horizontalmente en botones</p>
+
+        <div class="highlight">
+            <p>Por defecto, Bootstrap ya centra el texto en botones tanto vertical como horizontalmente. Pero si necesitas ajustes adicionales, aquí te mostramos cómo hacerlo.</p>
         </div>
 
-        <div class="content">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-info-circle"></i> ¿Qué es Vite?</h4>
-                </div>
-                <div class="card-body">
-                    <p>Vite (del francés "rápido") es una herramienta de construcción frontend que ofrece:</p>
-                    <ul class="benefits-list">
-                        <li><i class="bi bi-lightning benefit-icon"></i> <strong>Servidor de desarrollo ultrarrápido</strong></li>
-                        <li><i class="bi bi-arrow-clockwise benefit-icon"></i> <strong>HMR (Hot Module Replacement) instantáneo</strong></li>
-                        <li><i class="bi bi-box-seam benefit-icon"></i> <strong>Build optimizado para producción</strong></li>
-                        <li><i class="bi bi-gear benefit-icon"></i> <strong>Configuración sencilla</strong></li>
-                    </ul>
-                </div>
+        <h2>Solución por defecto (funciona sin CSS adicional)</h2>
+        <div class="example-box">
+            <p>Bootstrap ya incluye estilos para centrado automático:</p>
+            <button type="button" class="btn btn-primary btn-demo">Botón primario</button>
+            <button type="button" class="btn btn-success btn-demo">Botón éxito</button>
+            <button type="button" class="btn btn-danger btn-demo">Botón peligro</button>
+            
+            <div class="code-block">
+&lt;button type="button" class="btn btn-primary"&gt;Botón primario&lt;/button&gt;
+&lt;button type="button" class="btn btn-success"&gt;Botón éxito&lt;/button&gt;
+&lt;button type="button" class="btn btn-danger"&gt;Botón peligro&lt;/button&gt;
+            </div>
+        </div>
+
+        <h2>Si necesitas ajustes adicionales</h2>
+        <div class="example-box">
+            <p>Si por algún motivo necesitas forzar el centrado o ajustar botones personalizados:</p>
+            
+            <h4>1. Usando clases de utilidad de Bootstrap</h4>
+            <button type="button" class="btn btn-primary text-center btn-demo">text-center</button>
+            <button type="button" class="btn btn-success d-flex align-items-center justify-content-center btn-demo">flexbox</button>
+            
+            <div class="code-block">
+&lt;!-- Con text-center --&gt;
+&lt;button type="button" class="btn btn-primary text-center"&gt;text-center&lt;/button&gt;
+
+&lt;!-- Con flexbox --&gt;
+&lt;button type="button" class="btn btn-success d-flex align-items-center justify-content-center"&gt;flexbox&lt;/button&gt;
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-terminal"></i> Instalación de Vite</h4>
-                </div>
-                <div class="card-body">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <strong>Abre tu terminal</strong> y navega hasta la carpeta de tu proyecto
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <strong>Ejecuta el comando para crear un proyecto Vite</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm create vite@latest</span>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <strong>Sigue las instrucciones interactivas:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">√</span><span class="command"> Project name: » mi-proyecto</span><br>
-                        <span class="prompt">√</span><span class="command"> Select a framework: » Vanilla (o elige React, Vue, etc.)</span><br>
-                        <span class="prompt">√</span><span class="command"> Select a variant: » JavaScript (o TypeScript)</span>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div>
-                            <strong>Navega al directorio del proyecto e instala las dependencias:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">cd mi-proyecto</span><br>
-                        <span class="prompt">$</span><span class="command">npm install</span>
-                    </div>
-                </div>
+            <h4 class="mt-4">2. Botones de ancho completo</h4>
+            <button type="button" class="btn btn-primary w-100 mb-2">Botón ancho completo</button>
+            <button type="button" class="btn btn-success d-block w-100">Botón display block</button>
+            
+            <div class="code-block">
+&lt;!-- Con w-100 --&gt;
+&lt;button type="button" class="btn btn-primary w-100"&gt;Botón ancho completo&lt;/button&gt;
+
+&lt;!-- Con display block --&gt;
+&lt;button type="button" class="btn btn-success d-block w-100"&gt;Botón display block&lt;/button&gt;
+            </div>
+        </div>
+
+        <h2>Soluciones con CSS personalizado</h2>
+        <div class="example-box">
+            <p>Si necesitas un control más específico, puedes agregar CSS personalizado:</p>
+            
+            <h4>1. Clase personalizada para centrado perfecto</h4>
+            <button type="button" class="btn btn-primary btn-center-custom btn-demo">Centrado personalizado</button>
+            
+            <style>
+                .btn-center-custom {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 48px; /* Altura mínima para mejor apariencia */
+                }
+            </style>
+            
+            <div class="code-block">
+&lt;style&gt;
+    .btn-center-custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+    }
+&lt;/style&gt;
+
+&lt;button type="button" class="btn btn-primary btn-center-custom"&gt;Centrado personalizado&lt;/button&gt;
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-folder2-open"></i> Estructura de archivos después de instalar Vite</h4>
-                </div>
-                <div class="card-body">
-                    <div class="file-structure">
-                        mi-proyecto/<br>
-                        ├── node_modules/<br>
-                        ├── public/<br>
-                        │   └── vite.svg<br>
-                        ├── src/<br>
-                        │   ├── assets/<br>
-                        │   ├── App.css<br>
-                        │   ├── App.js<br>
-                        │   ├── index.css<br>
-                        │   └── main.js<br>
-                        ├── index.html<br>
-                        ├── package.json<br>
-                        ├── vite.config.js<br>
-                        └── ...
-                    </div>
-                    
-                    <p>El archivo <code>index.html</code> ahora es el punto de entrada de tu aplicación, y Vite inyectará automáticamente los scripts necesarios.</p>
-                </div>
+            <h4 class="mt-4">2. Centrado para botones con iconos</h4>
+            <button type="button" class="btn btn-info btn-icon-center btn-demo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+                Botón con icono
+            </button>
+            
+            <style>
+                .btn-icon-center {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                }
+            </style>
+            
+            <div class="code-block">
+&lt;style&gt;
+    .btn-icon-center {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+&lt;/style&gt;
+
+&lt;button type="button" class="btn btn-info btn-icon-center"&gt;
+    &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"&gt;
+        &lt;path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/&gt;
+    &lt;/svg&gt;
+    Botón con icono
+&lt;/button&gt;
             </div>
+        </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-play-circle"></i> Comandos principales de Vite</h4>
-                </div>
-                <div class="card-body">
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm run dev</span><br>
-                        <span class="comment"># Inicia el servidor de desarrollo en http://localhost:5173</span>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm run build</span><br>
-                        <span class="comment"># Construye la versión para producción en la carpeta 'dist'</span>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm run preview</span><br>
-                        <span class="comment"># Previsualiza la versión de producción localmente</span>
-                    </div>
-                </div>
+        <h2>Problemas comunes y soluciones</h2>
+        <div class="example-box">
+            <div class="alert alert-warning">
+                <h4>Problema: El texto no se centra correctamente</h4>
+                <p>Solución: Verifica que no haya estilos personalizados que estén anulando los estilos de Bootstrap.</p>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-gear"></i> Configuración adicional para proyectos existentes</h4>
-                </div>
-                <div class="card-body">
-                    <p>Si ya tienes un proyecto y quieres agregar Vite manualmente:</p>
-                    
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <strong>Instala Vite como dependencia de desarrollo:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm install --save-dev vite</span>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <strong>Crea un archivo vite.config.js en la raíz:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block">
-// vite.config.js
-import { defineConfig } from 'vite'
-
-export default defineConfig({
-  // Configuración específica de tu proyecto
-  server: {
-    port: 3000, // Puerto personalizado
-  },
-  build: {
-    outDir: 'dist', // Carpeta de salida para build
-  }
-})
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <strong>Actualiza tu package.json con los scripts de Vite:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block">
-// package.json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  }
-}
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div>
-                            <strong>Asegúrate de que tu index.html tenga esta estructura:</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Mi Proyecto&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="app"&gt;&lt;/div&gt;
-    &lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                    </div>
-                </div>
+            
+            <div class="alert alert-warning">
+                <h4>Problema: Botones con altura fija</h4>
+                <p>Solución: Usa <code>display: flex</code> junto con <code>align-items: center</code> y <code>justify-content: center</code>.</p>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0"><i class="bi bi-plugin"></i> Plugins útiles para Vite</h4>
-                </div>
-                <div class="card-body">
-                    <p>Puedes extender la funcionalidad de Vite con plugins:</p>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm install --save-dev @vitejs/plugin-react</span><br>
-                        <span class="comment"># Para proyectos React</span>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm install --save-dev vite-plugin-pwa</span><br>
-                        <span class="comment"># Para Progressive Web Apps</span>
-                    </div>
-                    
-                    <div class="terminal">
-                        <span class="prompt">$</span><span class="command">npm install --save-dev rollup-plugin-purgecss</span><br>
-                        <span class="comment"># Para eliminar CSS no utilizado</span>
-                    </div>
-                    
-                    <p>Luego configúralos en tu <code>vite.config.js</code>:</p>
-                    
-                    <div class="code-block">
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-})
-                    </div>
-                </div>
+            
+            <div class="alert alert-warning">
+                <h4>Problema: Botones con iconos e texto desalineados</h4>
+                <p>Solución: Usa <code>display: inline-flex</code> y <code>gap</code> para espaciado consistente.</p>
             </div>
+        </div>
 
-            <div class="alert alert-success">
-                <h4><i class="bi bi-check-circle"></i> ¡Listo! Vite está instalado</h4>
-                <p>Ahora puedes ejecutar <code>npm run dev</code> para iniciar el servidor de desarrollo y disfrutar de builds ultrarrápidos.</p>
-                <p class="mb-0">Vite recargará automáticamente tu aplicación cuando detecte cambios en los archivos, lo que acelera significativamente tu flujo de trabajo de desarrollo.</p>
-            </div>
+        <div class="alert alert-info mt-4">
+            <h4>Resumen final</h4>
+            <p>En la mayoría de casos, Bootstrap centra automáticamente el texto en botones. Si necesitas ajustes:</p>
+            <ul class="mb-0">
+                <li>Usa <code>text-center</code> para centrado horizontal</li>
+                <li>Usa <code>d-flex align-items-center justify-content-center</code> para centrado perfecto</li>
+                <li>Para botones con iconos, usa <code>inline-flex</code> con <code>gap</code></li>
+                <li>Para problemas específicos, agrega CSS personalizado</li>
+            </ul>
         </div>
     </div>
 
