@@ -1,3 +1,5 @@
+//import './testConnection';
+
 const contacForm = document.getElementById('contact-form');
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
 const toFacebookBtn = document.getElementById('facebook-btn');
