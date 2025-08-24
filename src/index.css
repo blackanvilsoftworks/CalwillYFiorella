@@ -157,7 +157,9 @@
 
 
 /*Shipping Container*/
-
+.shipping-rules-container{
+  background-color: rgb(248, 246, 233); /* Color de fondo claro */
+}
 
 
 
@@ -169,7 +171,8 @@
 /*Contact Form*/
 #contact-form-container {
   background-color: rgb(248, 246, 233); /* Color de fondo claro */
-  padding: 25px; /* Espaciado */
+  padding: 25px;
+  width: 100%;
 }
 
 #contact-form {
@@ -179,21 +182,20 @@
 
 
 
-     
+/*Footer*/
 footer {
   background-color: var(--dark-color);
   color: white;
   padding: 60px 0 30px;
 }
-        
+
 .social-icon {
   font-size: 1.5rem;
   color: white;
   margin-right: 15px;
   transition: color 0.3s;
 }
-        
+  
 .social-icon:hover {
   color: var(--accent-color);
 }
-            
