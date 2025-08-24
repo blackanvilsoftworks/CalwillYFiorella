@@ -3,198 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centrar texto en botones Bootstrap</title>
+    <title>Ubicación de Páginas Legales</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #2563eb;
+            --accent: #f59e0b;
+            --light: #f3f4f6;
+            --dark: #1f2937;
+        }
+        
         body {
-            background-color: #f8f9fa;
-            padding: 20px;
             font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: #374151;
+            padding: 20px;
         }
+        
         .container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            margin-top: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
-        .example-box {
-            margin-bottom: 30px;
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 12px 12px 0 0 !important;
+            padding: 15px 20px;
+        }
+        
+        .file-structure {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary);
             padding: 20px;
             border-radius: 8px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #0d6efd;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
         }
-        .btn-demo {
-            margin: 10px 5px;
-            min-width: 120px;
-        }
+        
         .code-block {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
             font-family: 'Courier New', monospace;
             overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
-        h2 {
-            color: #0d6efd;
-            margin-top: 30px;
+        
+        .option-card {
+            border-left: 4px solid var(--primary);
             margin-bottom: 20px;
         }
-        .highlight {
-            background-color: #fff3cd;
+        
+        .option-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .option-body {
             padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #ffc107;
+        }
+        
+        .recommendation {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .check-icon {
+            color: var(--success);
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mb-4">Centrar texto en botones Bootstrap</h1>
-        <p class="lead text-center">Guía completa para alinear texto vertical y horizontalmente en botones</p>
-
-        <div class="highlight">
-            <p>Por defecto, Bootstrap ya centra el texto en botones tanto vertical como horizontalmente. Pero si necesitas ajustes adicionales, aquí te mostramos cómo hacerlo.</p>
+        <div class="header">
+            <h1><i class="bi bi-folder"></i> Ubicación de Páginas Legales</h1>
+            <p class="lead">¿Dónde colocar Términos y Condiciones y Política de Privacidad?</p>
         </div>
 
-        <h2>Solución por defecto (funciona sin CSS adicional)</h2>
-        <div class="example-box">
-            <p>Bootstrap ya incluye estilos para centrado automático:</p>
-            <button type="button" class="btn btn-primary btn-demo">Botón primario</button>
-            <button type="button" class="btn btn-success btn-demo">Botón éxito</button>
-            <button type="button" class="btn btn-danger btn-demo">Botón peligro</button>
-            
-            <div class="code-block">
-&lt;button type="button" class="btn btn-primary"&gt;Botón primario&lt;/button&gt;
-&lt;button type="button" class="btn btn-success"&gt;Botón éxito&lt;/button&gt;
-&lt;button type="button" class="btn btn-danger"&gt;Botón peligro&lt;/button&gt;
-            </div>
-        </div>
-
-        <h2>Si necesitas ajustes adicionales</h2>
-        <div class="example-box">
-            <p>Si por algún motivo necesitas forzar el centrado o ajustar botones personalizados:</p>
-            
-            <h4>1. Usando clases de utilidad de Bootstrap</h4>
-            <button type="button" class="btn btn-primary text-center btn-demo">text-center</button>
-            <button type="button" class="btn btn-success d-flex align-items-center justify-content-center btn-demo">flexbox</button>
-            
-            <div class="code-block">
-&lt;!-- Con text-center --&gt;
-&lt;button type="button" class="btn btn-primary text-center"&gt;text-center&lt;/button&gt;
-
-&lt;!-- Con flexbox --&gt;
-&lt;button type="button" class="btn btn-success d-flex align-items-center justify-content-center"&gt;flexbox&lt;/button&gt;
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-question-circle"></i> ¿En el root o en /src/pages?</h4>
+                </div>
+                <div class="card-body">
+                    <p>Puedes colocarlas perfectamente en <code>./src/pages/</code> junto con tus otras páginas. No es necesario que estén en la raíz del proyecto.</p>
+                    
+                    <div class="file-structure">
+                        tu-proyecto/<br>
+                        ├── src/<br>
+                        │   ├── pages/<br>
+                        │   │   ├── auth/<br>
+                        │   │   ├── admin/<br>
+                        │   │   ├── dashboard/<br>
+                        │   │   ├── terminos-condiciones.html<br>
+                        │   │   └── politica-privacidad.html<br>
+                        │   ├── components/<br>
+                        │   └── styles/<br>
+                        ├── public/<br>
+                        └── package.json
+                    </div>
+                    
+                    <p class="mt-3">Esta estructura es completamente válida y organizada.</p>
+                </div>
             </div>
 
-            <h4 class="mt-4">2. Botones de ancho completo</h4>
-            <button type="button" class="btn btn-primary w-100 mb-2">Botón ancho completo</button>
-            <button type="button" class="btn btn-success d-block w-100">Botón display block</button>
-            
-            <div class="code-block">
-&lt;!-- Con w-100 --&gt;
-&lt;button type="button" class="btn btn-primary w-100"&gt;Botón ancho completo&lt;/button&gt;
-
-&lt;!-- Con display block --&gt;
-&lt;button type="button" class="btn btn-success d-block w-100"&gt;Botón display block&lt;/button&gt;
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-lightbulb"></i> Opciones de organización</h4>
+                </div>
+                <div class="card-body">
+                    <div class="option-card">
+                        <div class="option-header">
+                            Opción 1: Directamente en /src/pages
+                        </div>
+                        <div class="option-body">
+                            <div class="file-structure">
+                                src/<br>
+                                └── pages/<br>
+                                    ├── auth/<br>
+                                    ├── admin/<br>
+                                    ├── dashboard/<br>
+                                    ├── terminos-condiciones.html<br>
+                                    └── politica-privacidad.html
+                            </div>
+                            <p class="mt-2"><strong>Ventaja:</strong> Sencillo y directo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-header">
+                            Opción 2: En subcarpeta /legal dentro de /pages
+                        </div>
+                        <div class="option-body">
+                            <div class="file-structure">
+                                src/<br>
+                                └── pages/<br>
+                                    ├── auth/<br>
+                                    ├── admin/<br>
+                                    ├── dashboard/<br>
+                                    └── legal/<br>
+                                        ├── terminos-condiciones.html<br>
+                                        └── politica-privacidad.html
+                            </div>
+                            <p class="mt-2"><strong>Ventaja:</strong> Más organizado, especialmente si añades más páginas legales en el futuro.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-header">
+                            Opción 3: En carpeta /static o /public
+                        </div>
+                        <div class="option-body">
+                            <div class="file-structure">
+                                src/<br>
+                                └── pages/<br>
+                                    ├── auth/<br>
+                                    ├── admin/<br>
+                                    └── dashboard/<br>
+                                static/<br>
+                                └── legal/<br>
+                                    ├── terminos-condiciones.html<br>
+                                    └── politica-privacidad.html
+                            </div>
+                            <p class="mt-2"><strong>Ventaja:</strong> Separa el contenido estático/legal de las páginas de la aplicación.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <h2>Soluciones con CSS personalizado</h2>
-        <div class="example-box">
-            <p>Si necesitas un control más específico, puedes agregar CSS personalizado:</p>
-            
-            <h4>1. Clase personalizada para centrado perfecto</h4>
-            <button type="button" class="btn btn-primary btn-center-custom btn-demo">Centrado personalizado</button>
-            
-            <style>
-                .btn-center-custom {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    min-height: 48px; /* Altura mínima para mejor apariencia */
-                }
-            </style>
-            
-            <div class="code-block">
-&lt;style&gt;
-    .btn-center-custom {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
+            <div class="recommendation">
+                <h4><i class="bi bi-star"></i> Recomendación</h4>
+                <p>Te recomiendo la <strong>Opción 2: Crear una subcarpeta /legal dentro de /pages</strong> porque:</p>
+                <ul class="checklist">
+                    <li><i class="bi bi-check-circle check-icon"></i> Mantiene la organización coherente con tu estructura actual</li>
+                    <li><i class="bi bi-check-circle check-icon"></i> Es escalable si añades más páginas legales (como "Cookies", "Aviso Legal", etc.)</li>
+                    <li><i class="bi bi-check-circle check-icon"></i> Mantiene separado el contenido legal del funcional</li>
+                    <li><i class="bi bi-check-circle check-icon"></i> Es semanticamente correcto</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-code-slash"></i> Implementación con la opción recomendada</h4>
+                </div>
+                <div class="card-body">
+                    <div class="file-structure">
+                        src/<br>
+                        └── pages/<br>
+                            ├── auth/<br>
+                            │   ├── login.html<br>
+                            │   └── register.html<br>
+                            ├── admin/<br>
+                            │   ├── users.html<br>
+                            │   └── settings.html<br>
+                            ├── dashboard/<br>
+                            │   ├── index.html<br>
+                            │   └── profile.html<br>
+                            └── legal/<br>
+                                ├── terminos-condiciones.html<br>
+                                └── politica-privacidad.html
+                    </div>
+                    
+                    <p class="mt-3">Los enlaces en tu footer serían:</p>
+                    <div class="code-block">
+&lt;footer&gt;
+    &lt;a href="/src/pages/legal/terminos-condiciones.html"&gt;Términos y Condiciones&lt;/a&gt;
+    &lt;a href="/src/pages/legal/politica-privacidad.html"&gt;Política de Privacidad&lt;/a&gt;
+&lt;/footer&gt;
+                    </div>
+                    
+                    <p class="mt-3">Si estás usando Vite, puedes configurar alias para paths más limpios:</p>
+                    <div class="code-block">
+// vite.config.js
+import { defineConfig } from 'vite'
+import path from 'path'
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@legal': path.resolve(__dirname, './src/pages/legal')
     }
-&lt;/style&gt;
-
-&lt;button type="button" class="btn btn-primary btn-center-custom"&gt;Centrado personalizado&lt;/button&gt;
+  }
+})
+                    </div>
+                    
+                    <p>Y luego usar enlaces más limpios:</p>
+                    <div class="code-block">
+&lt;footer&gt;
+    &lt;a href="@legal/terminos-condiciones.html"&gt;Términos y Condiciones&lt;/a&gt;
+    &lt;a href="@legal/politica-privacidad.html"&gt;Política de Privacidad&lt;/a&gt;
+&lt;/footer&gt;
+                    </div>
+                </div>
             </div>
 
-            <h4 class="mt-4">2. Centrado para botones con iconos</h4>
-            <button type="button" class="btn btn-info btn-icon-center btn-demo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-                Botón con icono
-            </button>
-            
-            <style>
-                .btn-icon-center {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 8px;
-                }
-            </style>
-            
-            <div class="code-block">
-&lt;style&gt;
-    .btn-icon-center {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-gear"></i> Configuración para producción</h4>
+                </div>
+                <div class="card-body">
+                    <p>Si estás usando un tooling de build (como Vite, Webpack, etc.), asegúrate de que:</p>
+                    
+                    <ol>
+                        <li>Las páginas legales se copien al directorio de build final</li>
+                        <li>Los enlaces funcionen correctamente en producción</li>
+                    </ol>
+                    
+                    <p>En Vite, por defecto, todo en la carpeta <code>src</code> se procesa, pero puedes asegurarte añadiendo esto en <code>vite.config.js</code>:</p>
+                    
+                    <div class="code-block">
+// vite.config.js
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        terminos: resolve(__dirname, 'src/pages/legal/terminos-condiciones.html'),
+        privacidad: resolve(__dirname, 'src/pages/legal/politica-privacidad.html')
+      }
     }
-&lt;/style&gt;
+  }
+})
+                    </div>
+                    
+                    <p>O simplemente asegurándote de que tu HTML principal tenga enlaces correctos a estas páginas.</p>
+                </div>
+            </div>
 
-&lt;button type="button" class="btn btn-info btn-icon-center"&gt;
-    &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"&gt;
-        &lt;path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/&gt;
-    &lt;/svg&gt;
-    Botón con icono
-&lt;/button&gt;
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-check-circle"></i> Resumen final</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="checklist">
+                        <li><i class="bi bi-check-circle check-icon"></i> Sí, puedes poner las páginas en <code>./src/pages/</code></li>
+                        <li><i class="bi bi-check-circle check-icon"></i> Recomiendo crear una subcarpeta <code>/legal</code> dentro de <code>/pages</code></li>
+                        <li><i class="bi bi-check-circle check-icon"></i> Ajusta los enlaces en tu footer para apuntar a la nueva ubicación</li>
+                        <li><i class="bi bi-check-circle check-icon"></i> Si usas Vite, considera configurar alias para paths más limpios</li>
+                        <li><i class="bi bi-check-circle check-icon"></i> Verifica que todo funcione correctamente en producción</li>
+                    </ul>
+                    
+                    <p class="mt-3">Esta approach mantiene tu proyecto organizado y escalable, permitiéndote añadir fácilmente más páginas legales en el futuro si es necesario.</p>
+                </div>
             </div>
-        </div>
-
-        <h2>Problemas comunes y soluciones</h2>
-        <div class="example-box">
-            <div class="alert alert-warning">
-                <h4>Problema: El texto no se centra correctamente</h4>
-                <p>Solución: Verifica que no haya estilos personalizados que estén anulando los estilos de Bootstrap.</p>
-            </div>
-            
-            <div class="alert alert-warning">
-                <h4>Problema: Botones con altura fija</h4>
-                <p>Solución: Usa <code>display: flex</code> junto con <code>align-items: center</code> y <code>justify-content: center</code>.</p>
-            </div>
-            
-            <div class="alert alert-warning">
-                <h4>Problema: Botones con iconos e texto desalineados</h4>
-                <p>Solución: Usa <code>display: inline-flex</code> y <code>gap</code> para espaciado consistente.</p>
-            </div>
-        </div>
-
-        <div class="alert alert-info mt-4">
-            <h4>Resumen final</h4>
-            <p>En la mayoría de casos, Bootstrap centra automáticamente el texto en botones. Si necesitas ajustes:</p>
-            <ul class="mb-0">
-                <li>Usa <code>text-center</code> para centrado horizontal</li>
-                <li>Usa <code>d-flex align-items-center justify-content-center</code> para centrado perfecto</li>
-                <li>Para botones con iconos, usa <code>inline-flex</code> con <code>gap</code></li>
-                <li>Para problemas específicos, agrega CSS personalizado</li>
-            </ul>
         </div>
     </div>
 
