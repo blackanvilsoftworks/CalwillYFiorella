@@ -9,20 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    -->
     <link rel="stylesheet" href="./src/index.css">
-    <link rel="icon" type="image/x-icon" href="./src/assets/images/logo2.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/icon.jpg">
     <title>Calwill & Fiorella | Calzados Infantiles y para Adultos de Calidad</title>
 </head>
 <body>
     <!-- Navbar width="50" height="50" -->
-    <nav class="navbar navbar-expand-lg navbar-light m-0 p-0 fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light m-0 p-0 fixed-top shadow">
         <div class="container-fluid">
             <a class="navbar-brand" href="#hero-container">
-                <img src="./src/assets/images/Logo2_0.png" alt="Calwill & Fiorella Logo" height="40" class="d-inline-block align-text-top me-2">
+                <img src="./assets/navbar-logo.png" alt="Calwill & Fiorella Logo" height="40" class="d-inline-block align-text-top me-2">
                 <span class="ms-2 navbar-title">CALWILL & FIORELLA</span>
             </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        <div class="container ps-auto">
+        <div class="container text-center ps-auto">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -30,9 +36,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about-us-container">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features-container">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#products-container">Productos</a>
@@ -52,482 +55,496 @@
     </nav>    
 
     <!-- Hero Section -->
-    <section class="hero-section mt-5">
-        <div class="container" id="hero-container">
+    <section class="hero-section mt-5 px-3" id="hero-container">    
+        <div class="container">
             <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
             <p class="lead mb-4 fw-semibold">Fabricamos calzado infantil con los mejores materiales y distribuimos calzado para adultos de las mejores marcas.</p>
             <a href="#products-container" class="btn btn-primary btn-lg">Ver Productos</a>
         </div>
     </section>
+    
 
     <!-- Sobre Nosotros-->
-    <div class="container mt-3 py-5 text-center" id="about-us-container">
-        <div class="row">
-            <h1 class="col-md-12 mb-4">
-                <span class="titles">
-                    Sobre Nosotros
-                    <i class="bi bi-balloon-heart"></i>
-                </span>
-            </h1>
-            <div class="col-md-4">
-                <img src="./src/assets/images/logo.jpg" class="img-fluid" alt="Logo Calwill y Fiorella">
-            </div>
-            <div class="col-md-8 px-5 align-self-center">
-                <p>Calwill y Fiorella es una empresa dedicada a ofrecer productos de alta calidad con un enfoque en la sostenibilidad y el diseño innovador. Nuestro compromiso es brindar lo mejor a nuestros clientes, combinando tradición y modernidad.</p>
-                <p class="lead">En Calwill & Fiorella nos especializamos en la fabricación de calzado infantil de la más alta calidad, con diseños únicos y materiales sostenibles.</p>
-                <p>Además, somos distribuidores de calzado para hombres y mujeres, ofreciendo una amplia variedad de estilos y tallas para toda la familia.</p>
-                <p>Nuestra misión es proporcionar calzado cómodo, durable y a la moda que satisfaga las necesidades de nuestros clientes.</p>    
+    <div class="container mt-3 mt-sm-5 pt-5 pb-3 text-center rounded-3" id="about-us-container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="row">
+                    <h1 class="col-12">
+                        <span class="titles">
+                            Sobre Nosotros
+                            <i class="bi bi-balloon-heart"></i>
+                        </span>
+                    </h1>
+                    <div class="col-12 col-md-5 col-lg-5 align-content-center">
+                        <img src="./src/assets/images/logo.jpg" class="img-fluid" alt="Logo Calwill y Fiorella">
+                    </div>
+                    <div class="col-12 col-md-7 col-lg-7 px-5 align-self-center">
+                        <p>En Calwill & Fiorella nos especializamos en la fabricación de calzado infantil de la más alta calidad, con diseños únicos y materiales sostenibles.</p>
+                        <p>Calwill y Fiorella es una empresa dedicada a ofrecer productos de alta calidad con un enfoque en la sostenibilidad y el diseño innovador. Nuestro compromiso es brindar lo mejor a nuestros clientes, combinando tradición y modernidad.</p>
+                        <p>Además, somos distribuidores de calzado para hombres y mujeres, ofreciendo una amplia variedad de estilos y tallas para toda la familia.</p>
+                        <p>Nuestra misión es proporcionar calzado cómodo, durable y a la moda que satisfaga las necesidades de nuestros clientes.</p>    
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Features Container -->    
-    <div class="container mt-5 py-5 bg-light" id="features-container">
-        <h2 class="section-title text-center">
-            <span class="titles">
-                ¿Por qué elegirnos?
-            </span>
-        </h2>
-        <div class="row mt-4">
-            <div class="col-md-4 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="bi bi-star-fill"></i>
+    <div class="container mt-2 mt-sm-4 py-5" id="features-container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="row">
+                    <h2 class="section-title text-center mb-4">
+                        <span class="titles">
+                            ¿Por qué elegirnos?
+                            <i class="bi bi-person-raised-hand"></i>
+                        </span>
+                    </h2>                    
+                    <div class="col-12 col-md-4 mb-4 px-3">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h3>Calidad Premium</h3>
+                            <p>Utilizamos materiales de primera calidad para garantizar la durabilidad y comodidad de nuestro calzado.</p>
+                        </div>
                     </div>
-                    <h3>Calidad Premium</h3>
-                    <p>Utilizamos materiales de primera calidad para garantizar la durabilidad y comodidad de nuestro calzado.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="bi bi-tree-fill"></i>
+                    <div class="col-12 col-md-4 mb-4 px-3">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="bi bi-tree-fill"></i>
+                            </div>
+                            <h3>Materiales Sustentables</h3>
+                            <p>Nos preocupamos por el medio ambiente utilizando materiales ecológicos y procesos sostenibles.</p>
+                        </div>
                     </div>
-                    <h3>Materiales Sustentables</h3>
-                    <p>Nos preocupamos por el medio ambiente utilizando materiales ecológicos y procesos sostenibles.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="bi bi-heart-fill"></i>
-                    </div>
-                    <h3>Hecho con Amor</h3>
-                    <p>Cada par de zapatos es fabricado con dedicación y atención a los detalles.</p>
+                    <div class="col-12 col-md-4 mb-4 px-3">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+                            <h3>Hecho con Amor</h3>
+                            <p>Cada par de zapatos es fabricado con dedicación y atención a los detalles.</p>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Products Container -->    
-    <div class="container py-5" id="products-container">
-        <h2 class="text-center">
-            <span class="titles">
-                Nuestros Productos
-                <i class="bi bi-cart"></i>
-            </span>
-        </h2>
-        <ul class="nav nav-pills justify-content-center mb-4" id="productsTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="children-tab" data-bs-toggle="pill" data-bs-target="#children" type="button" role="tab" aria-controls="children" aria-selected="true">Calzado Infantil</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="women-tab" data-bs-toggle="pill" data-bs-target="#women" type="button" role="tab" aria-controls="women" aria-selected="false">Calzado para Mujeres</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="men-tab" data-bs-toggle="pill" data-bs-target="#men" type="button" role="tab" aria-controls="men" aria-selected="false">Calzado para Hombres</button>
-            </li>
-        </ul>
-        
-        <div class="tab-content" id="productsTabContent">
-            <div class="tab-pane fade show active" id="children" role="tabpanel" aria-labelledby="children-tab">
+    <div class="container py-3 py-sm-4 py-md-5 rounded-3" id="products-container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-lg-12 px-lg-5">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
+                    <h2 class="text-center">
+                        <span class="titles">
+                            Nuestros Productos
+                            <i class="bi bi-cart"></i>
+                        </span>
+                    </h2>      
+                    <ul class="nav nav-pills justify-content-center mb-4" id="productsTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="children-tab" data-bs-toggle="pill" data-bs-target="#children" type="button" role="tab" aria-controls="children" aria-selected="true">Calzado Infantil</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="women-tab" data-bs-toggle="pill" data-bs-target="#women" type="button" role="tab" aria-controls="women" aria-selected="false">Calzado para Mujeres</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="men-tab" data-bs-toggle="pill" data-bs-target="#men" type="button" role="tab" aria-controls="men" aria-selected="false">Calzado para Hombres</button>
+                        </li>
+                    </ul>        
+                    <div class="tab-content" id="productsTabContent">
+                        <div class="tab-pane fade show active" id="children" role="tabpanel" aria-labelledby="children-tab">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-children-product1" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/children/product1_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product1_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product1_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-children-product1" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-children-product1" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niño</h5>
+                                            <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-children-product2" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/children/product2_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product2_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product2_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-children-product2" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-children-product2" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-children-product3" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/children/product3_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product3_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product3_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-children-product3" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-children-product3" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Bebé</h5>
+                                            <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
+                                        </div>                            
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-children-product4" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/children/product4_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product4_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/children/product4_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-children-product4" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-children-product4" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niño</h5>
-                                <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
+                        </div>                        
+                        <div class="tab-pane fade" id="women" role="tabpanel" aria-labelledby="women-tab">
+                            <div class="row">
+                                <!-- Productos para mujeres -->
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-women-product1" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/women/product1_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product1_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product1_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-women-product1" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-women-product1" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niño</h5>
+                                            <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-women-product2" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/women/product2_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product2_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product2_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-women-product2" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-women-product2" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-women-product3" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/women/product3_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product3_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product3_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-women-product3" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-women-product3" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Bebé</h5>
+                                            <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
+                                        </div>                            
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-women-product4" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/women/product4_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product4_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/women/product4_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-women-product4" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-women-product4" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
+                        <div class="tab-pane fade" id="men" role="tabpanel" aria-labelledby="men-tab">
+                            <div class="row">
+                                <!-- Productos para hombres -->
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-men-product1" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/men/product1_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product1_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product1_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-men-product1" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-men-product1" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niño</h5>
+                                            <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Bebé</h5>
-                                <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel4" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-pane fade" id="women" role="tabpanel" aria-labelledby="women-tab">
-                <div class="row">
-                    <!-- Productos para mujeres -->
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel5" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-men-product2" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/men/product2_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product2_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product2_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-men-product2" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-men-product2" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niño</h5>
-                                <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel7" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-men-product3" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/men/product3_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product3_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product3_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-men-product3" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-men-product3" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Bebé</h5>
+                                            <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
+                                        </div>                            
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel7" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel7" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Bebé</h5>
-                                <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel8" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel8" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel8" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-pane fade" id="men" role="tabpanel" aria-labelledby="men-tab">
-                <div class="row">
-                    <!-- Productos para hombres -->
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel9" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
+                                <div class="col-md-4">
+                                    <div class="card product-card">
+                                        <div id="carousel-men-product4" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./src/assets/images/productsContainer/men/product4_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product4_img2.jpg" class="d-block w-100" alt="Imagen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./src/assets/images/productsContainer/men/product4_img3.jpg" class="d-block w-100" alt="Imagen 3">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-men-product4" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-men-product4" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zapatos para Niña</h5>
+                                            <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel9" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel9" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niño</h5>
-                                <p class="card-text">Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel10" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel10" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel10" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel11" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel11" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel11" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Bebé</h5>
-                                <p class="card-text">Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.</p>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card product-card">
-                            <div id="carousel12" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./src/assets/images/carousel_img_1.jpg" class="d-block w-100" alt="Imagen 1">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_2.jpg" class="d-block w-100" alt="Imagen 2">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./src/assets/images/carousel_img_3.jpg" class="d-block w-100" alt="Imagen 3">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel12" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel12" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Zapatos para Niña</h5>
-                                <p class="card-text">Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>    
 
     <!-- Envíos -->
     <!-- Contiene dos row, una con indicaciones para envíos en GBA y otra para el resto del país, para GBA tiene tres columnas (1 para envíos en la zona de Llavallol gratis, 2 para envíos en GBA por mensajería con costo adicional, 3 para venir a retirar en un punto de encuentro en la estación de Llavallol que también es gratis. Para el resto que no es GBA se indica que se puede realizar envíos mediante una <ul> de opciones varias)-->
     <div class="cointainer pt-5 text-center" id="shipping-container">
-        <div class="row mx-5 px-4">
+        <div class="row mx-3 mx-sm-5 px-3 ">
             <div class="col-md-12">
                 <h2 class="mb-4">
-                    <span class="titles">Opciones de Envío</span>
-                    <i class="bi bi-rocket-takeoff"></i>
+                    <span class="titles">
+                        Opciones de Envío
+                        <i class="bi bi-rocket-takeoff"></i>
+                    </span>
                 </h2>
             </div>        
-            <div class="col-md-4">
-                <h4 class="subtitles">Retiro en Estación Llavallol</h4>
+            <div class="col-12 col-md-4 my-3 my-md-0 px-3">
+                <h4 class="subtitles">Retiros en Estación Llavallol</h4>
                 <p>En caso que deseen retirarlo, se realiza la entrega de manera gratuita en el hall de la estación de tren de Llavallol, coordinando día y horario por WhatsApp.</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-12 col-md-4 mb-3 my-md-0 px-3">
                 <h4 class="subtitles">Envíos en GBA</h4>
                 <p>Envío mediante repartidor con un costo adicional. El costo depende de la zona.</p>
                 <p>En caso de seleccionar envío, se deberá abonar el mismo en su totalidad por transeferencia a Mercado Pago el mismo día a modo de anticipo, previo a la salida del repartidor.</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-12 col-md-4 my-md-0 px-3">
                 <h4 class="subtitles">Envíos al Resto del País</h4>
                 <ul class="list-unstyled">
                     <li>Envío mediante Correo Argentino.</li>
@@ -536,20 +553,21 @@
                     <li>Envío mediante otras empresas de logística.</li>
                 </ul>
             </div>
-            <div class="col-md-8 p-3 shipping-rules-container">
+            <div class="col-12 col-md-8 p-3 shipping-rules-container rounded-3">
                 <p>Se coordinará día y horario vía WhatsApp, una vez esté el repartidor en el lugar y hora acordado, se tendrá una tolerancia de 15 minutos.</p>
                 <p>En caso de sobrepasar el tiemo de tolerancia, el pago no es reembolsable, y el repartidor coninuará con el resto de entregas, debiendose pactar una nueva fecha y horario.</p>
                 <p>Dependiendo de la demanda, podría coordinarse para ese mismo día. En cualquier caso, se deberá abonar una nueva cuota de envío.</p>
             </div>
-            <div class="col-md-4"></div>
         </div>
     </div>
 
     <!-- Métodos de pago -->
-    <div class="container text-center pt-5" id="pay-methods-container">
+    <div class="container text-center mt-0 pt-5" id="pay-methods-container">
         <h2 class="mb-4">
-            <span class="titles">Métodos de Pago</span>
-            <i class="bi bi-cash-coin"></i>
+            <span class="titles">
+                Métodos de Pago
+                <i class="bi bi-cash-coin"></i>
+            </span>
         </h2>
         <p>Aceptamos los siguientes métodos de pago:</p>
         <ul class="list-unstyled">
@@ -559,13 +577,13 @@
     </div>
 
     <!-- Contact Form Container -->
-    <div class="container mt-4 pt-5" id="contact-form-container">
+    <div class="container mt-4 pt-5 rounded-3" id="contact-form-container">
         <h2 class="text-center mb-4">
             <span class="titles">
                 Contáctanos <i class="bi bi-mailbox-flag"></i>
             </span>
         </h2>
-        <div class="row">
+        <div class="row" id="form-row">
             <form id="contact-form" action="https://formsubmit.co/0174b80241b0dd7c9e1c0db7161a7aa0" method="POST">
                 <!-- Campos ocultos de FormSubmit -->
                 <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
@@ -663,3 +681,4 @@
     <script src="./src/main.js"></script>
 </body>
 </html>
+
