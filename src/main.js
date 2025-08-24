@@ -1,9 +1,11 @@
+//import './testConnection';
+
 const contacForm = document.getElementById('contact-form');
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
 const toFacebookBtn = document.getElementById('facebook-btn');
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneNumberRegex = /^[0-9]{10}$/;
-const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños
+const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños. Que se puedan poner , y .
 
 contacForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -20,16 +22,10 @@ contacForm.addEventListener('submit', function(e) {
         return;
     }
 
-    whatsappLinkPhoneNumber = ` Link al WhatsApp: https://wa.me/549${cleanedPhoneNumber}`;
+    whatsappLinkPhoneNumber = `https://wa.me/549${cleanedPhoneNumber}`;
+    
+    inputPhoneNumber.value = whatsappLinkPhoneNumber;
 
-    /*
-    const message = `Hola,%20soy%20${encodeURIComponent(name)}.%20Te%20contacto%20desde%20la%20web%20de%20Calwill%20%26%20Fiorella`;
-    
-    const whatsappLink = `https://wa.me/54${phone}?text=${message}`;
-    */
-    
-    inputMessage.value += whatsappLinkPhoneNumber;
-    
     this.submit(); // Esto activa FormSubmit
     contacForm.reset();
     alert('Formulario enviado con éxito.');
@@ -62,6 +58,9 @@ const messageValidation = (inputMessage) => {
     }
     return cleanedMessage; 
 };
+
+
+// Footer Container Buttons
 
 toFacebookBtn.addEventListener('click', () => {
     const facebookURL = 'https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr';
