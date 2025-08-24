@@ -56,10 +56,19 @@ body {
   background: var(--accent-color);
   margin: 15px auto 0;
 }
+
 .subtitles{
   font-family: 'Borel';
 }
 
+.subtitles:after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent-color);
+  margin: 15px auto 0;
+}
 
 
 /*Navbar*/
