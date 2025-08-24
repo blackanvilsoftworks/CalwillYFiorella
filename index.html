@@ -536,7 +536,7 @@
                     <li>Envío mediante otras empresas de logística.</li>
                 </ul>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 p-3 shipping-rules-container">
                 <p>Se coordinará día y horario vía WhatsApp, una vez esté el repartidor en el lugar y hora acordado, se tendrá una tolerancia de 15 minutos.</p>
                 <p>En caso de sobrepasar el tiemo de tolerancia, el pago no es reembolsable, y el repartidor coninuará con el resto de entregas, debiendose pactar una nueva fecha y horario.</p>
                 <p>Dependiendo de la demanda, podría coordinarse para ese mismo día. En cualquier caso, se deberá abonar una nueva cuota de envío.</p>
@@ -575,7 +575,7 @@
                 
                 <div class="col-12 col-md-6 mb-3 px-1">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" name="Nombre" class="form-control" id="name" placeholder="Nombre" required>
+                    <input type="text" name="Nombre" class="form-control" id="name" placeholder="Solo letras" required>
                 </div>
                 <div class="col-12 col-md-6 mb-3 px-1">
                     <label for="phone-number" class="form-label">Número de Teléfono</label>
@@ -589,81 +589,68 @@
             </form>
         </div>
         <div class="row mt-3">
-            <div class="col-md-6 ms-auto">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xxl-6 ms-auto">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Información de Contacto</h5>
-                        <p><i class="bi bi-envelope-fill me-2"></i> Email: calwillyfiorella@gmail.com</p>
-                        <p><i class="bi bi-telephone-fill"></i> Teléfono: 11-5959-0586</p>
-                        <p><i class="bi bi-clock-fill me-2"></i> Horario: Lunes a Sábado de 09:00 a 18:00</p>
+                        <div class="container">
+                            <div class="row mb-2">
+                                <div class="col-1"><i class="bi bi-envelope-fill me-2"></i></div>
+                                <div class="col-11">Email: calwillyfiorella@gmail.com</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="col-11">Teléfono: 11-5959-0586</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1"><i class="bi bi-clock-fill me-2"></i></div>
+                                <div class="col-11">Horario: Lunes a Sábado de 09:00 a 18:00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center mt-5">
-        <div class="container">
-            <div class="row mb-3 pt-3">
-                <div class="col-sm-12 col-md-12"></div>
-                <div class="col-sm-12 col-md-12">
-                    <button type="button" class="btn btn-outline-primary text-center" id="facebook-btn">
-                        <i class="bi bi-facebook"></i> Facebook
-                    </button>
-                </div>
-                <div class="col-sm-12 col-md-12">
-                    <button type="button" class="btn btn-outline-success" id="whatsapp-btn">
-                        <i class="bi bi-whatsapp"></i> +54 9 11-5959-0586
-                    </button>
-                </div>
-                <div class="col-sm-12 col-md-12"></div>
-            </div>
-            <div class="row">
-                <hr>
-                <p class="col-12 mt-3">
-                    © 2023 Calwill y Fiorella. Todos los derechos reservados.
-                </p>
-                <div class="col-12 mb-3">
-                    <a href="#" class="text-dark">Política de privacidad</a> | 
-                    <a href="#" class="text-dark">Términos de servicio</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>Calwill & Fiorella</h5>
-                    <p>Fabricantes de calzado infantil y distribuidores de calzado para adultos. Calidad, comodidad y estilo para toda la familia.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Inicio</a></li>
-                        <li><a href="#nosotros" class="text-white">Nosotros</a></li>
-                        <li><a href="#productos" class="text-white">Productos</a></li>
-                        <li><a href="#contacto" class="text-white">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Suscríbete a nuestro newsletter</h5>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Email">
-                            <button class="btn btn-primary" type="button">Suscribirse</button>
+    <!-- Footer Container-->
+    <footer class="text-center pt-4 mt-3">
+        <div class="container pt-0">
+            <div class="row justify-content-center"> <!-- Centramos la fila -->
+                <div class="col-12 col-md-8"> <!-- Limitamos el ancho en pantallas grandes -->
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <button type="button" class="btn btn-outline-primary w-100" id="facebook-btn">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </button>
                         </div>
-                    </form>
-                </div>
-            </div>
-            <hr class="bg-light">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2023 Calwill & Fiorella. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white me-3">Términos y Condiciones</a>
-                    <a href="#" class="text-white">Política de Privacidad</a>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <button type="button" class="btn btn-outline-success w-100" id="whatsapp-btn">
+                                <i class="bi bi-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>                    
+                    <hr>                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Calwill & Fiorella</h5>
+                            <p>Fabricantes de calzado infantil y distribuidores de calzado para adultos. Calidad, comodidad y estilo para toda la familia.</p>
+                        </div>
+                    </div>                    
+                    <hr>                    
+                    <div class="row">
+                        <div class="col-12">
+                            <p>&copy; 2023 Calwill & Fiorella. Todos los derechos reservados.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <a href="./src/pages/legal/termsAndConditions.html" class="text-white">Términos y Condiciones</a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="./src/pages/legal/privacyPolicy.html" class="text-white">Política de Privacidad</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

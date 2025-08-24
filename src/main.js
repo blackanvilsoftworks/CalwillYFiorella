@@ -59,6 +59,9 @@ const messageValidation = (inputMessage) => {
     return cleanedMessage; 
 };
 
+
+// Footer Container Buttons
+
 toFacebookBtn.addEventListener('click', () => {
     const facebookURL = 'https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr';
     window.open(facebookURL, '_blank');
