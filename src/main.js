@@ -3,6 +3,7 @@
 const contacForm = document.getElementById('contact-form');
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
 const toFacebookBtn = document.getElementById('facebook-btn');
+const formRow = document.getElementById('form-row');
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneNumberRegex = /^[0-9]{10}$/;
 const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños. Que se puedan poner , y .
@@ -29,6 +30,12 @@ contacForm.addEventListener('submit', function(e) {
     this.submit(); // Esto activa FormSubmit
     contacForm.reset();
     alert('Formulario enviado con éxito.');
+    
+    /*formRow.innerHTML += `
+        <div class="alert alert-success mt-3" role="alert">
+    `;*/
+
+    
 });
 
 const nameValidation = (inputName) => {

@@ -9,20 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    -->
     <link rel="stylesheet" href="./src/index.css">
     <link rel="icon" type="image/x-icon" href="./src/assets/images/logo2.jpg">
     <title>Calwill & Fiorella | Calzados Infantiles y para Adultos de Calidad</title>
 </head>
 <body>
     <!-- Navbar width="50" height="50" -->
-    <nav class="navbar navbar-expand-lg navbar-light m-0 p-0 fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light m-0 p-0 fixed-top shadow">
         <div class="container-fluid">
             <a class="navbar-brand" href="#hero-container">
                 <img src="./src/assets/images/Logo2_0.png" alt="Calwill & Fiorella Logo" height="40" class="d-inline-block align-text-top me-2">
                 <span class="ms-2 navbar-title">CALWILL & FIORELLA</span>
             </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        <div class="container ps-auto">
+        <div class="container text-center ps-auto">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -30,9 +36,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about-us-container">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features-container">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#products-container">Productos</a>
@@ -51,14 +54,13 @@
         </div>
     </nav>    
 
-    <!-- Hero Section -->
-    <section class="hero-section mt-5">
-        <div class="container" id="hero-container">
-            <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
-            <p class="lead mb-4 fw-semibold">Fabricamos calzado infantil con los mejores materiales y distribuimos calzado para adultos de las mejores marcas.</p>
-            <a href="#products-container" class="btn btn-primary btn-lg">Ver Productos</a>
-        </div>
-    </section>
+    <!-- Hero Container -->
+    <div class="container mt-5" id="hero-container">
+        <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
+        <p class="lead mb-4 fw-semibold">Fabricamos calzado infantil con los mejores materiales y distribuimos calzado para adultos de las mejores marcas.</p>
+        <a href="#products-container" class="btn btn-primary btn-lg">Ver Productos</a>
+    </div>
+    
 
     <!-- Sobre Nosotros-->
     <div class="container mt-3 py-5 text-center" id="about-us-container">
@@ -565,7 +567,7 @@
                 Contáctanos <i class="bi bi-mailbox-flag"></i>
             </span>
         </h2>
-        <div class="row">
+        <div class="row" id="form-row">
             <form id="contact-form" action="https://formsubmit.co/0174b80241b0dd7c9e1c0db7161a7aa0" method="POST">
                 <!-- Campos ocultos de FormSubmit -->
                 <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
@@ -663,3 +665,4 @@
     <script src="./src/main.js"></script>
 </body>
 </html>
+
