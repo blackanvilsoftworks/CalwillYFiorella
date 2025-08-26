@@ -174,7 +174,14 @@ const fillHeroSection = (obj) => {
     `;
 };
 
-
+const createTitles = (title, icon) => {
+    return `
+        <span class="titles">
+            ${title}
+            <i class="icon"><i>
+        </span>
+    `;
+};
 
 const fillAboutUsContainer = (obj) => {
     const container = document.getElementById(obj.id);
