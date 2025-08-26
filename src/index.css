@@ -235,5 +235,7 @@ footer {
 @media (max-width: 576px) {
     .navbar-title {
         font-size: 1rem !important; /* Tamaño reducido para móviles */
+        margin-right: auto;
+        margin-left: auto;
     }
 }
