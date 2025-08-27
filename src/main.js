@@ -21,7 +21,7 @@ const arrProducts = [
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'apatos para Niña',
+                title: 'Zapatos para Niña',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
                 carouselImages: [1, 2, 3]
             },
@@ -42,22 +42,22 @@ const arrProducts = [
         title: 'Calzado para Mujeres',
         cards: [
             {
-                title: 'Zapatos para Niño',
+                title: 'Zapatos para Mujer',
                 description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'apatos para Niña',
+                title: 'apatos para Mujer',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'Zapatos para Bebé',
+                title: 'Zapatos para Mujer',
                 description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'Zapatos para Niño',
+                title: 'Zapatos para Mujer',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
                 carouselImages: [1, 2, 3]
             }
@@ -68,22 +68,22 @@ const arrProducts = [
         title: 'Calzado para Hombres',
         cards: [
             {
-                title: 'Zapatos para Niño',
+                title: 'Zapatos para Hombres',
                 description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'apatos para Niña',
+                title: 'apatos para Hombres',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'Zapatos para Bebé',
+                title: 'Zapatos para Hombres',
                 description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
                 carouselImages: [1, 2, 3]
             },
             {
-                title: 'Zapatos para Niño',
+                title: 'Zapatos para Hombres',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
                 carouselImages: [1, 2, 3]
             }
@@ -127,18 +127,20 @@ const arrInfoCardContent = [
 
 const createNavbarItems = () => {
     return arrContainers.map(item => {
-        if (item.id === 'hero-container') {
-            return `
+        if (item.navbar){
+            if (item.id === 'hero-container') {
+                return `
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#${item.id}">${item.navbar}</a>
                 </li>
-            `;
-        } else {
-            return `
+                `;
+            } else {
+                return `
                 <li class="nav-item">
                     <a class="nav-link" href="#${item.id}">${item.navbar}</a>
                 </li>
-            `;
+                `;
+            }
         }
     }).join('');
 };
@@ -207,7 +209,7 @@ const fillAboutUsContainer = (obj) => {
     `;
 };  
 
-const createFeatureBox = (icon, title, description) => {
+const createFeatureBox = () => {
     return arrFeatures.map(feature => `
         <div class="col-12 col-md-4 mb-4 px-3">
             <div class="feature-box">
@@ -260,7 +262,6 @@ const createProductsContainers = () => {
     let html = '';
     for (let i = 0; i < arrProducts.length; i++) {
         if (i === 0) {
-            // First tab is active
             html += `
                 <div class="tab-pane fade show active" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
             `;
@@ -275,6 +276,7 @@ const createProductsContainers = () => {
             </div>
         </div>`;
     }
+    return html;
 };
 
 const createCarousel = (i) => {
@@ -297,6 +299,7 @@ const createCarousel = (i) => {
             </div>        
         `;
     }
+    return html;
 };
 
 const createCarouselImages = (i, j) => {
@@ -309,17 +312,19 @@ const createCarouselImages = (i, j) => {
             html += `<div class="carousel-item">`;
         }
         html += `
-                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}">
+                <img src="./assets/images/productscontainer/children/product1_img1.jpg" class="d-block w-100" alt="Imagen 1">
             </div>
         </div>`;
-    }
+    } 
+        //<img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}">
+    return html;
 };
 
 const createCarouselButtons = (id, prevOrNext) => {
     return `
         <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
             <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">${prevOrNext === next ? 'Next' : 'Previous'}</span>
+            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
         </button>
     `;
 };
@@ -347,6 +352,8 @@ const fillFooterContainer = (obj) => {
         </div>
     `;
 };
+
+
 
 const fillShippingContainer = (obj) => {
     const container = document.getElementById(obj.id);
@@ -381,9 +388,7 @@ const fillPayMethodsContainer = (obj) => {
     const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="mb-4">
-            <span class="titles">
-                ${createTitles(obj.title, obj.icon)}
-            </span>
+            ${createTitles(obj.title, obj.icon)}
         </h2>
         <p>Aceptamos los siguientes métodos de pago:</p>
         ${createPayMethodsList()}
@@ -545,6 +550,18 @@ const arrPayMethods = [
     'Efectivo (10% de descuento)'
 ];
 
+const createSocialMediaButton = () => {
+    return `
+        ${arrSocialMedia.map(media => {`
+            <div class="col-12 col-sm-6 mb-3">
+                <button type="button" class="btn btn-outline-${media.color} w-100" id="${media.name}-btn">
+                    <i class="bi bi-${media.name}"></i> ${media.name.toUpperCase()}
+                </button>
+            </div>
+        `}).join('')}
+    `;
+}
+
 const arrSocialMedia = [
     {
         name: 'facebook',
@@ -705,10 +722,10 @@ const createContactInfoCardItem = () => {
 
 
 const fillBody = () => {
-    console.log('Hola');
     arrContainers.forEach(container => {
-        container.function(container);
-        //if (container.function) {        }
+        if (container.function) {        
+            container.function(container);
+        }
     });
 };
 
