@@ -180,7 +180,7 @@ const createTitles = (title, icon) => {
     return `
         <span class="titles">
             ${title}
-            <i class="icon"><i>
+            <i class="${icon}"><i>
         </span>
     `;
 };
@@ -579,21 +579,21 @@ const arrSocialMedia = [
 ];
 
 // Funciones
-/*
+
 const fillBody = () => {
     fillNavbar(arrContainers[0]);
     fillHeroSection(arrContainers[1]);
-    fillAboutUsContainer(arrContainers[2]);
+    fillAboutUsContainer(arrContainers[2]);/*
     fillFeaturesContainer(arrContainers[3]);
     fillProductsContainer(arrContainers[4]);
     fillShippingContainer(arrContainers[5]);
     fillPayMethodsContainer(arrContainers[6]);
     fillContactFormContainer(arrContainers[7]);
-    fillFooterContainer(arrContainers[8]);
+    fillFooterContainer(arrContainers[8]);*/
 
     
 };
-*/
+
 
 
 
@@ -720,7 +720,7 @@ const createContactInfoCardItem = () => {
 
 
 
-
+/*
 const fillBody = () => {
     arrContainers.forEach(container => {
         if (container.function) {        
@@ -728,7 +728,7 @@ const fillBody = () => {
         }
     });
 };
-
+*/
 fillBody();
 
 
