@@ -47,7 +47,7 @@ body {
   /*margin-left: 10px; /* Espacio entre el texto y el icono */
   color: black; /* Color del icono */
 }
-/*
+
 .titles:after {
   content: '';
   display: block;
@@ -55,7 +55,7 @@ body {
   height: 3px;
   background: var(--accent-color);
   margin: 15px auto 0;
-}*/
+}
 
 .subtitles{
   font-family: 'Borel';

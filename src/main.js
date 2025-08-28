@@ -180,7 +180,7 @@ const createTitles = (title, icon) => {
     return `
         <span class="titles">
             ${title}
-            <i class="${icon}"><i>
+            <i class="${icon}"></i>
         </span>
     `;
 };
@@ -454,7 +454,7 @@ const arrContainers =[
         id: 'features-container',
         navbar: 'Características',
         title: '¿Por Qué Elegirnos?',
-        icon: 'bi bi-person-raised-hand"',
+        icon: 'bi bi-person-raised-hand',
         function: fillFeaturesContainer
     },
     {
