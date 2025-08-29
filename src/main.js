@@ -1,9 +1,9 @@
 //import './testConnection';
 
 
-const contacForm = document.getElementById('contact-form');
+
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
-const toFacebookBtn = document.getElementById('facebook-btn');
+
 const formRow = document.getElementById('form-row');
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneNumberRegex = /^[0-9]{10}$/;
@@ -239,6 +239,39 @@ const fillFeaturesContainer = (obj) => {
     `;
 };
 
+const createCarouselButtons = (id, prevOrNext) => {
+    return `
+        <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
+            <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
+        </button>
+    `;
+};
+
+
+const createCarousel = (i) => {
+    let html = '';
+    for (let j = 0; j < arrProducts[i].cards.length; j++) {
+        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
+        html += `
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card">
+                    <div id="${id}" class="carousel slide" data-bs-ride="carousel">
+                        ${createCarouselImages(i, j)}
+                        ${createCarouselButtons(id, 'prev')}
+                        ${createCarouselButtons(id, 'next')}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
+                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
+                    </div>
+                </div>
+            </div>        
+        `;
+    }
+    return html;
+};
+
 const fillProductsContainer = (obj) => {
     const container = document.getElementById(obj.id);
     container.innerHTML = `
@@ -279,55 +312,24 @@ const createProductsContainers = () => {
     return html;
 };
 
-const createCarousel = (i) => {
-    let html = '';
-    for (let j = 0; j < arrProducts[i].cards.length; j++) {
-        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
-        html += `
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card product-card">
-                    <div id="${id}" class="carousel slide" data-bs-ride="carousel">
-                        ${createCarouselImages(i, j)}
-                        ${createCarouselButtons(id, 'prev')}
-                        ${createCarouselButtons(id, 'next')}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
-                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
-                    </div>
-                </div>
-            </div>        
-        `;
-    }
-    return html;
-};
+
 
 const createCarouselImages = (i, j) => {
     let html = '';
     for (let k = 0; k < arrProducts[i].cards[j].carouselImages.length; k++){
         html = `<div class="carousel-inner">`;
-        if (k === 0) {
-            html += `<div class="carousel-item active">`;
-        } else {
-            html += `<div class="carousel-item">`;
-        }
+        
+        html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
+ 
         html += `
-                <img src="./assets/images/productscontainer/children/product1_img1.jpg" class="d-block w-100" alt="Imagen 1">
+                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
             </div>
         </div>`;
     } 
-        //<img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}">
+        
     return html;
 };
 
-const createCarouselButtons = (id, prevOrNext) => {
-    return `
-        <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
-            <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
-        </button>
-    `;
-};
 
 
 
@@ -579,21 +581,19 @@ const arrSocialMedia = [
 ];
 
 // Funciones
-
+/*
 const fillBody = () => {
     fillNavbar(arrContainers[0]);
     fillHeroSection(arrContainers[1]);
-    fillAboutUsContainer(arrContainers[2]);/*
+    fillAboutUsContainer(arrContainers[2]);
     fillFeaturesContainer(arrContainers[3]);
     fillProductsContainer(arrContainers[4]);
     fillShippingContainer(arrContainers[5]);
     fillPayMethodsContainer(arrContainers[6]);
     fillContactFormContainer(arrContainers[7]);
-    fillFooterContainer(arrContainers[8]);*/
-
-    
+    fillFooterContainer(arrContainers[8]);    
 };
-
+*/
 
 
 
@@ -626,7 +626,7 @@ const createProductsNav = () => {
             `;
         } else {
             items += `
-                <button class="nav-link" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="false">${arrProducts[i].id}</button>
+                <button class="nav-link" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="false">${arrProducts[i].title}</button>
             `;
         }
         items += `</li>`;
@@ -720,7 +720,7 @@ const createContactInfoCardItem = () => {
 
 
 
-/*
+
 const fillBody = () => {
     arrContainers.forEach(container => {
         if (container.function) {        
@@ -728,7 +728,7 @@ const fillBody = () => {
         }
     });
 };
-*/
+
 fillBody();
 
 
@@ -754,7 +754,7 @@ fillBody();
 
 
 
-
+const contacForm = document.getElementById('contact-form');
 
 contacForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -816,6 +816,7 @@ const messageValidation = (inputMessage) => {
 
 
 // Footer Container Buttons
+const toFacebookBtn = document.getElementById('facebook-btn');
 
 toFacebookBtn.addEventListener('click', () => {
     const facebookURL = 'https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr';
