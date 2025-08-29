@@ -1,5 +1,4 @@
 // ===== IMPORTS =====
-//import './testConnection';
 
 // ===== CONSTANTES GLOBALES =====
 const globalInfo = {
@@ -14,6 +13,7 @@ const phoneNumberRegex = /^[0-9]{10}$/;
 const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños. Que se puedan poner , y .
 
 // ===== FUNCIONES DE CREACIÓN =====
+// Uso General
 const createTitles = (title, icon) => {
     return `
         <span class="titles">
@@ -23,6 +23,7 @@ const createTitles = (title, icon) => {
     `;
 };
 
+// Navbar
 const createNavbarItems = () => {
     return arrContainers.map(item => {
         if (item.navbar){
@@ -35,6 +36,7 @@ const createNavbarItems = () => {
     }).join('');
 };
 
+// Features
 const createFeatureBox = () => {
     return arrFeatures.map(feature => `
         <div class="col-12 col-md-4 mb-4 px-3">
@@ -49,78 +51,7 @@ const createFeatureBox = () => {
     `).join('');
 };
 
-const createCarouselButtons = (id, prevOrNext) => {
-    return `
-        <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
-            <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
-        </button>
-    `;
-};
-
-const createCarousel = (i) => {
-    let html = '';
-    for (let j = 0; j < arrProducts[i].cards.length; j++) {
-        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
-        html += `
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card product-card">
-                    <div id="${id}" class="carousel slide" data-bs-ride="carousel">
-                        ${createCarouselImages(i, j)}
-                        ${createCarouselButtons(id, 'prev')}
-                        ${createCarouselButtons(id, 'next')}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
-                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
-                    </div>
-                </div>
-            </div>        
-        `;
-    }
-    return html;
-};
-
-const createProductsContainers = () => {
-    let html = '';
-    for (let i = 0; i < arrProducts.length; i++) {
-        if (i === 0) {
-            html += `
-                <div class="tab-pane fade show active" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        } else {
-            html += `
-                <div class="tab-pane fade show" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        }
-        html += `
-            <div class="row">
-                ${createCarousel(i)}
-            </div>
-        </div>`;
-    }
-    return html;
-};
-
-const createCarouselImages = (i, j) => {
-    const totalImages = arrProducts[i].cards[j].carouselImages;
-    
-    let html = `<div class="carousel-inner">`;
-    
-    for (let k = 0; k < totalImages; k++){
-        html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
-
-        html += `
-                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
-            </div>
-        `;
-    } 
-
-    html += `</div>`;
-        
-    return html;
-};
-
+// Products
 const createProductsNav = () => {
     items = '';
     
@@ -146,18 +77,79 @@ const createProductsNav = () => {
     `;
 };
 
-const createSocialMediaButton = () => {
-    return `
-        ${arrSocialMedia.map(media => `
-            <div class="col-12 col-sm-6 mb-3">
-                <button type="button" class="btn btn-outline-${media.color} w-100" id="${media.name}-btn">
-                    <i class="bi bi-${media.name}"></i> ${media.name.charAt(0).toUpperCase() + media.name.slice(1)}
-                </button>
+const createProductsContainers = () => {
+    let html = '';
+    for (let i = 0; i < arrProducts.length; i++) {
+        if (i === 0) {
+            html += `
+                <div class="tab-pane fade show active" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
+            `;
+        } else {
+            html += `
+                <div class="tab-pane fade show" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
+            `;
+        }
+        html += `
+            <div class="row">
+                ${createCarousel(i)}
             </div>
-        `).join('')}
+        </div>`;
+    }
+    return html;
+};
+
+const createCarousel = (i) => {
+    let html = '';
+    for (let j = 0; j < arrProducts[i].cards.length; j++) {
+        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
+        html += `
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card">
+                    <div id="${id}" class="carousel slide" data-bs-ride="carousel">
+                        ${createCarouselImages(i, j)}
+                        ${createCarouselButtons(id, 'prev')}
+                        ${createCarouselButtons(id, 'next')}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
+                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
+                    </div>
+                </div>
+            </div>        
+        `;
+    }
+    return html;
+};
+
+const createCarouselImages = (i, j) => {
+    const totalImages = arrProducts[i].cards[j].carouselImages;
+    
+    let html = `<div class="carousel-inner">`;
+    
+    for (let k = 0; k < totalImages; k++){
+        html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
+
+        html += `
+                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
+            </div>
+        `;
+    } 
+
+    html += `</div>`;
+        
+    return html;
+};
+
+const createCarouselButtons = (id, prevOrNext) => {
+    return `
+        <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
+            <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
+        </button>
     `;
 };
 
+// Shipping
 const createShippingOption = (i) => {
     return `
         <h4 class="subtitles">${arrShippingOptions[i].subtitle}</h4>
@@ -165,6 +157,7 @@ const createShippingOption = (i) => {
         `;
 };
 
+// Pay Methods
 const createPayMethodsList = () => {
     return `
         <ul class="list-unstyled">
@@ -176,9 +169,10 @@ const createPayMethodsList = () => {
     `;
 };
 
+// Contact Form and Info Card
 const createContactForm = () => {
     return `
-        <form id="contact-form" action="https://formsubmit.co/0174b80241b0dd7c9e1c0db7161a7aa0" method="POST">
+        <form id="contact-form" action="https://formsubmit.co/${globalInfo.email}" method="POST">
             <!-- Campos ocultos de FormSubmit -->
             <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
             <input type="hidden" name="_template" value="table">
@@ -209,7 +203,7 @@ const createContactInfoCard = () => {
                 <div class="card-body">
                     <h5 class="card-title">Información de Contacto</h5>
                     <div class="container">
-                        ${createContactInfoCardItem()}
+                        ${createContactInfoCardItems()}
                     </div>
                 </div>
             </div>
@@ -217,13 +211,26 @@ const createContactInfoCard = () => {
     `;
 };
 
-const createContactInfoCardItem = () => {
+const createContactInfoCardItems = () => {
     return arrInfoCardContent.map(item => `
         <div class="row mb-2">
             <div class="col-1"><i class="${item.icon}"></i></div>
             <div class="col-11">${item.type}: ${item.value}</div>
         </div>
     `).join('');
+};
+
+// Footer
+const createSocialMediaButton = () => {
+    return `
+        ${arrSocialMedia.map(media => `
+            <div class="col-12 col-sm-6 mb-3">
+                <button type="button" class="btn btn-outline-${media.color} w-100" id="${media.name}-btn">
+                    <i class="bi bi-${media.name}"></i> ${media.name.charAt(0).toUpperCase() + media.name.slice(1)}
+                </button>
+            </div>
+        `).join('')}
+    `;
 };
 
 // ===== FUNCIONES DE LLENADO =====
@@ -291,7 +298,7 @@ const fillFeaturesContainer = (obj) => {
                     <h2 class="section-title text-center mb-4">
                         ${createTitles(obj.title, obj.icon)}
                     </h2>
-                    ${createFeatureBox()}                  
+                    ${createFeatureBox()}
                 </div>
             </div>
         </div>
@@ -395,6 +402,72 @@ const fillFooterContainer = (obj) => {
 };
 
 // ===== ARRAYS DE DATOS =====
+const arrContainers =[
+    {
+        id: 'navbar-container',
+        navbar: null,
+        title: null,
+        icon: null,
+        function: fillNavbar
+    },
+    {
+        id: 'hero-section',
+        navbar: 'Inicio',
+        title: null,
+        icon: null,
+        function: fillHeroSection
+    },
+    {
+        id: 'about-us-container',
+        navbar: 'Sobre Nosotros',
+        title: 'Sobre Nosotros',
+        icon: 'bi bi-balloon-heart',
+        function: fillAboutUsContainer
+    },
+    {
+        id: 'features-container',
+        navbar: 'Características',
+        title: '¿Por Qué Elegirnos?',
+        icon: 'bi bi-person-raised-hand',
+        function: fillFeaturesContainer
+    },
+    {
+        id: 'products-container',
+        navbar: 'Productos',
+        title: 'Nuestros Productos',
+        icon: 'bi bi-cart',
+        function: fillProductsContainer
+    },
+    {
+        id: 'shipping-container',
+        navbar: 'Envíos',
+        title: 'Opciones de Envío',
+        icon: 'bi bi-rocket-takeoff',
+        function: fillShippingContainer
+    },
+    {
+        id: 'pay-methods-container',
+        navbar: 'Pagos',
+        title: 'Métodos de Pago',
+        icon: 'bi bi-cash-coin',
+        function: fillPayMethodsContainer
+    },
+    {
+        id: 'contact-form-container',
+        navbar: 'Contacto',
+        title: 'Contáctanos',
+        icon: 'bi bi-mailbox-flag',
+        function: fillContactFormContainer
+    },
+    {
+        id: 'footer-container',
+        navbar: null,
+        title: null,
+        icon: null,
+        function: fillFooterContainer
+    }
+];
+
 const arrProducts = [
     {
         id:'children',
@@ -476,25 +549,6 @@ const arrProducts = [
     }
 ];
 
-const arrInfoCardContent = [
-    {
-        type: 'Email',
-        value: globalInfo.email,
-        icon: 'bi bi-envelope-fill'
-    },
-    {
-        type: 'Teléfono',
-        value: globalInfo.phoneNumber,
-        icon: 'bi bi-telephone-fill'
-    },
-    {
-        type: 'Horario',
-        value: 'Lunes a Sábado de 09:00 a 18:00',
-        icon: 'bi bi-clock-fill'
-    }
-];
-
-
 const arrFeatures = [
     {
         icon: 'bi bi-star-fill',
@@ -551,6 +605,24 @@ const arrPayMethods = [
     'Efectivo (10% de descuento)'
 ];
 
+const arrInfoCardContent = [
+    {
+        type: 'Email',
+        value: globalInfo.email,
+        icon: 'bi bi-envelope-fill'
+    },
+    {
+        type: 'Teléfono',
+        value: globalInfo.phoneNumber,
+        icon: 'bi bi-telephone-fill'
+    },
+    {
+        type: 'Horario',
+        value: 'Lunes a Sábado de 09:00 a 18:00',
+        icon: 'bi bi-clock-fill'
+    }
+];
+
 const arrSocialMedia = [
     {
         name: 'facebook',
@@ -564,72 +636,6 @@ const arrSocialMedia = [
         color: 'success',
         url: `https://wa.me/${globalInfo.phoneNumber.replace(/\D/g, '')}` // Quita todo lo que no sea número y que busque el array por tipo y no porindex
 
-    }
-];
-
-const arrContainers =[
-    {
-        id: 'navbar-container',
-        navbar: null,
-        title: null,
-        icon: null,
-        function: fillNavbar
-    },
-    {
-        id: 'hero-section',
-        navbar: 'Inicio',
-        title: null,
-        icon: null,
-        function: fillHeroSection
-    },
-    {
-        id: 'about-us-container',
-        navbar: 'Sobre Nosotros',
-        title: 'Sobre Nosotros',
-        icon: 'bi bi-balloon-heart',
-        function: fillAboutUsContainer
-    },
-    {
-        id: 'features-container',
-        navbar: 'Características',
-        title: '¿Por Qué Elegirnos?',
-        icon: 'bi bi-person-raised-hand',
-        function: fillFeaturesContainer
-    },
-    {
-        id: 'products-container',
-        navbar: 'Productos',
-        title: 'Nuestros Productos',
-        icon: 'bi bi-cart',
-        function: fillProductsContainer
-    },
-    {
-        id: 'shipping-container',
-        navbar: 'Envíos',
-        title: 'Opciones de Envío',
-        icon: 'bi bi-rocket-takeoff',
-        function: fillShippingContainer
-    },
-    {
-        id: 'pay-methods-container',
-        navbar: 'Pagos',
-        title: 'Métodos de Pago',
-        icon: 'bi bi-cash-coin',
-        function: fillPayMethodsContainer
-    },
-    {
-        id: 'contact-form-container',
-        navbar: 'Contacto',
-        title: 'Contáctanos',
-        icon: 'bi bi-mailbox-flag',
-        function: fillContactFormContainer
-    },
-    {
-        id: 'footer-container',
-        navbar: null,
-        title: null,
-        icon: null,
-        function: fillFooterContainer
     }
 ];
 
