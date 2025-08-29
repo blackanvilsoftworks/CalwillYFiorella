@@ -1,11 +1,18 @@
 # CalwillYFiorella
 
-Se crea web estática con HTML CSS y JS destinada a la muestra de productos para venta de calzados.
+v2.0 
 
-La misma no contiene mecanismos para sing in, carritos de compras ni metodos de pago integradas.
+Este es un sitio web estático destinado a la presentación de una marca, muestra de productos y contacto con el dueño.
 
-Está destinada a la muestra en cuyo caso hay interés se ofrece medios de contacto con el vendedor.
+No se muestran precios ni posee sistemas de pagos, carrito de compras, ni login.
 
-Al momento todo el contenido está volcado en el HTML, luego de finalizar con la disposición y contenido de la web se procederá a buscar dinamizar la página mediante JS y creación de contenido HTML, junto con una conexión a Supabase la cual deberá contener la información relacionada a los productos.
+Se utilizaron las siguientes herramientas:
+  - Github: Para repositorios y control de versiones/features.
+  - HTML: Solo para el esqueleto del sitio.
+  - Bootstrap: Se aplicó Navbar, Cards, Carousel, entre otros.
+  - CSS: Para estilos personalizados.
+  - JavaScript: En esta ocación, todo el contenido del sitio fue modularizado dentro de un mismo archivo, a modo de autogenerar estructuras repetitivas.
+  - DeepSeek: Para consultas.
 
-Asimismo, se buscará generar un sector para administradores con page de login y donde puedan realizar el CRUD del contenido.
+Objetivos para v3.0:
+  1. Implementar POO mediante modularización en componentes reutilizables con estructura de carpetas escalabale.
