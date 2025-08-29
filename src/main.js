@@ -172,7 +172,7 @@ const createPayMethodsList = () => {
 // Contact Form and Info Card
 const createContactForm = () => {
     return `
-        <form id="contact-form" action="https://formsubmit.co/${globalInfo.email}" method="POST">
+        <form id="contact-form" action="https://formsubmit.co/2de495d6697701c09817e38cb6e8e35e" method="POST">
             <!-- Campos ocultos de FormSubmit -->
             <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
             <input type="hidden" name="_template" value="table">
