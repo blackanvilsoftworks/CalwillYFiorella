@@ -26,19 +26,11 @@ const createTitles = (title, icon) => {
 const createNavbarItems = () => {
     return arrContainers.map(item => {
         if (item.navbar){
-            if (item.id === 'hero-container') {
-                return `
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#${item.id}">${item.navbar}</a>
-                </li>
-                `;
-            } else {
-                return `
+            return `
                 <li class="nav-item">
                     <a class="nav-link" href="#${item.id}">${item.navbar}</a>
                 </li>
-                `;
-            }
+            `;
         }
     }).join('');
 };
@@ -111,8 +103,11 @@ const createProductsContainers = () => {
 };
 
 const createCarouselImages = (i, j) => {
+    const totalImages = arrProducts[i].cards[j].carouselImages;
+    
     let html = `<div class="carousel-inner">`;
-    for (let k = 0; k < arrProducts[i].cards[j].carouselImages.length; k++){
+    
+    for (let k = 0; k < totalImages; k++){
         html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
 
         html += `
@@ -187,7 +182,7 @@ const createContactForm = () => {
             <!-- Campos ocultos de FormSubmit -->
             <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="http://127.0.0.1:5500/#contact-form-container">
+            <input type="hidden" name="_next" value="https://blackanvilsoftworks.github.io/CalwillYFiorella/#contact-form-container">
             <input type="hidden" name="_captcha" value="false">
             
             <div class="col-12 col-md-6 mb-3 px-1">
@@ -408,22 +403,22 @@ const arrProducts = [
             {
                 title: 'Zapatos para Niño',
                 description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Niña',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Bebé',
                 description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Niño',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             }
         ]
     },
@@ -434,22 +429,22 @@ const arrProducts = [
             {
                 title: 'Zapatos para Mujer',
                 description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Mujer',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Mujer',
                 description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Mujer',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             }
         ]
     },
@@ -460,22 +455,22 @@ const arrProducts = [
             {
                 title: 'Zapatos para Hombres',
                 description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Hombres',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Hombres',
                 description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             },
             {
                 title: 'Zapatos para Hombres',
                 description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: [1, 2, 3]
+                carouselImages: 3
             }
         ]
     }
@@ -699,22 +694,23 @@ contacForm.addEventListener('submit', function(e) {
         return;
     }
 
-    whatsappLinkPhoneNumber = `https://wa.me/549${cleanedPhoneNumber}`;
+    const whatsappLinkPhoneNumber = `https://wa.me/549${cleanedPhoneNumber}`;
     
     inputPhoneNumber.value = whatsappLinkPhoneNumber;
 
     this.submit(); // Esto activa FormSubmit
     contacForm.reset();
-    alert('Formulario enviado con éxito.');
 });
 
 toFacebookBtn.addEventListener('click', () => {
-    window.open(arrSocialMedia[0].url, '_blank');
+    const facebookItem = arrSocialMedia.find(item => item.name === 'facebook');
+    window.open(facebookItem.url, '_blank');
 });
 
 toWhatsappBtn.addEventListener('click', () => {
-    const whatsappName = "NOMBRE_AQUI"; // Reemplaza con el nombre que desees
-    const whatsappMessage = "MENSAJE_AQUI"; // Reemplaza con el mensaje que desees
-    const whatsappURL = `${arrSocialMedia[2].url}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
+    const whatsappItem = arrSocialMedia.find(item => item.name === 'whatsapp');
+    const whatsappName = "NOMBRE_AQUI";
+    const whatsappMessage = "MENSAJE_AQUI";
+    const whatsappURL = `${whatsappItem.url}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
 });
