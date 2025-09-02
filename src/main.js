@@ -56,18 +56,11 @@ const createProductsNav = () => {
     items = '';
     
     for (let i = 0; i < arrProducts.length; i++) {
-        items += `<li class="nav-item" role="presentation">`;
-        if (i === 0) {
-            // First tab is active
-            items += `
-                <button class="nav-link active" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="true">${arrProducts[i].title}</button>
-            `;
-        } else {
-            items += `
-                <button class="nav-link" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="false">${arrProducts[i].title}</button>
-            `;
-        }
-        items += `</li>`;
+        items += `
+            <li class="nav-item" role="presentation">
+                <button class="nav-link${i === 0 ? " active" : ""}" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="${i === 0 ? "true" : "false"}">${arrProducts[i].title}</button>
+            </li>
+        `;
     }
 
     return `
@@ -80,20 +73,13 @@ const createProductsNav = () => {
 const createProductsContainers = () => {
     let html = '';
     for (let i = 0; i < arrProducts.length; i++) {
-        if (i === 0) {
-            html += `
-                <div class="tab-pane fade show active" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        } else {
-            html += `
-                <div class="tab-pane fade show" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        }
         html += `
-            <div class="row">
-                ${createCarousel(i)}
+            <div class="tab-pane fade show${i === 0 ? " active" : ""}" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
+                <div class="row">
+                    ${createCarousel(i)}
+                </div>
             </div>
-        </div>`;
+        `;
     }
     return html;
 };
@@ -235,7 +221,6 @@ const createSocialMediaButton = () => {
 
 // ===== FUNCIONES DE LLENADO =====
 const fillNavbar = (obj, container) => {
-    //const container = document.getElementById(obj.id);    
     container.innerHTML = `
         <div class="container-fluid">
             <a class="navbar-brand" href="#${obj.id}">
@@ -255,7 +240,6 @@ const fillNavbar = (obj, container) => {
 }; 
 
 const fillHeroSection = (obj, container) => {    
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="container">
             <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
@@ -266,7 +250,6 @@ const fillHeroSection = (obj, container) => {
 };
 
 const fillAboutUsContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10">
@@ -290,7 +273,6 @@ const fillAboutUsContainer = (obj, container) => {
 }; 
 
 const fillFeaturesContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10">
@@ -306,7 +288,6 @@ const fillFeaturesContainer = (obj, container) => {
 };
 
 const fillProductsContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10 col-lg-12 px-lg-5">
@@ -325,7 +306,6 @@ const fillProductsContainer = (obj, container) => {
 };
 
 const fillShippingContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center"> <!-- Centrar la fila -->
             <div class="col-12 col-md-10"> <!-- Limitar el ancho en pantallas grandes -->
@@ -354,7 +334,6 @@ const fillShippingContainer = (obj, container) => {
 };
 
 const fillPayMethodsContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="mb-4">
             ${createTitles(obj.title, obj.icon)}
@@ -365,7 +344,6 @@ const fillPayMethodsContainer = (obj, container) => {
 };
 
 const fillContactFormContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="text-center mb-4">
             ${createTitles(obj.title, obj.icon)}
@@ -380,7 +358,6 @@ const fillContactFormContainer = (obj, container) => {
 };
 
 const fillFooterContainer = (obj, container) => {
-    //const container = document.getElementById(obj.id);
     container.innerHTML = `    
         <div class="container pt-0">
             <div class="row justify-content-center"> <!-- Centramos la fila -->
