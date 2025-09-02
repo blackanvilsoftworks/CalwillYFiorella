@@ -639,7 +639,7 @@ const arrSocialMedia = [
     }
 ];
 
-// ===== FUNCIONES DE VALIDACIÓN =====
+// ===== FUNCIONES DE VALIDACIÓN Y AUXILIARES =====
 const nameValidation = (inputName) => {
     const cleanedName = inputName.value.trim();
     if (!nameRegex.test(cleanedName)) {
@@ -667,6 +667,8 @@ const messageValidation = (inputMessage) => {
     }
     return cleanedMessage; 
 };
+
+const getSocialMediaItem = name => arrSocialMedia.find(item => item.name === name);
 
 // ===== INICIALIZACIÓN =====
 const fillBody = () => {
@@ -709,12 +711,12 @@ contacForm.addEventListener('submit', function(e) {
 });
 
 toFacebookBtn.addEventListener('click', () => {
-    const facebookItem = arrSocialMedia.find(item => item.name === 'facebook');
+    const facebookItem = getSocialMediaItem('facebook');
     window.open(facebookItem.url, '_blank');
 });
 
 toWhatsappBtn.addEventListener('click', () => {
-    const whatsappItem = arrSocialMedia.find(item => item.name === 'whatsapp');
+    const whatsappItem = getSocialMediaItem('whatsapp');
     const whatsappName = "NOMBRE_AQUI";
     const whatsappMessage = "MENSAJE_AQUI";
     const whatsappURL = `${whatsappItem.url}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
