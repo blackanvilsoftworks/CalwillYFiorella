@@ -234,8 +234,8 @@ const createSocialMediaButton = () => {
 };
 
 // ===== FUNCIONES DE LLENADO =====
-const fillNavbar = (obj) => {
-    const container = document.getElementById(obj.id);    
+const fillNavbar = (obj, container) => {
+    //const container = document.getElementById(obj.id);    
     container.innerHTML = `
         <div class="container-fluid">
             <a class="navbar-brand" href="#${obj.id}">
@@ -254,8 +254,8 @@ const fillNavbar = (obj) => {
     `;
 }; 
 
-const fillHeroSection = (obj) => {    
-    const container = document.getElementById(obj.id);
+const fillHeroSection = (obj, container) => {    
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="container">
             <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
@@ -265,8 +265,8 @@ const fillHeroSection = (obj) => {
     `;
 };
 
-const fillAboutUsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillAboutUsContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10">
@@ -289,8 +289,8 @@ const fillAboutUsContainer = (obj) => {
     `;
 }; 
 
-const fillFeaturesContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillFeaturesContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10">
@@ -305,8 +305,8 @@ const fillFeaturesContainer = (obj) => {
     `;
 };
 
-const fillProductsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillProductsContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <div class="row justify-content-center">
             <div class="col-10 col-lg-12 px-lg-5">
@@ -324,11 +324,11 @@ const fillProductsContainer = (obj) => {
     `;
 };
 
-const fillShippingContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillShippingContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
-        <div class="row justify-content-center"> <!-- Centramos la fila -->
-            <div class="col-12 col-md-10"> <!-- Limitamos el ancho en pantallas grandes -->
+        <div class="row justify-content-center"> <!-- Centrar la fila -->
+            <div class="col-12 col-md-10"> <!-- Limitar el ancho en pantallas grandes -->
                 <div class="row mx-3 mx-sm-5 px-3 ">
                     <div class="col-md-12">
                         <h2 class="mb-4">
@@ -353,8 +353,8 @@ const fillShippingContainer = (obj) => {
     `;
 };
 
-const fillPayMethodsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillPayMethodsContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="mb-4">
             ${createTitles(obj.title, obj.icon)}
@@ -364,8 +364,8 @@ const fillPayMethodsContainer = (obj) => {
     `;
 };
 
-const fillContactFormContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillContactFormContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="text-center mb-4">
             ${createTitles(obj.title, obj.icon)}
@@ -379,8 +379,8 @@ const fillContactFormContainer = (obj) => {
     `;
 };
 
-const fillFooterContainer = (obj) => {
-    const container = document.getElementById(obj.id);
+const fillFooterContainer = (obj, container) => {
+    //const container = document.getElementById(obj.id);
     container.innerHTML = `    
         <div class="container pt-0">
             <div class="row justify-content-center"> <!-- Centramos la fila -->
@@ -673,8 +673,10 @@ const getSocialMediaItem = name => arrSocialMedia.find(item => item.name === nam
 // ===== INICIALIZACIÓN =====
 const fillBody = () => {
     arrContainers.forEach(container => {
-        if (container.function) {        
-            container.function(container);
+        if (container.function) {
+            const containerElement = document.getElementById(container.id);
+            if (!containerElement) console.error(`Elemento con id "${container.id}" no encontrado.`);
+            container.function(container,containerElement);
         }
     });
 };
