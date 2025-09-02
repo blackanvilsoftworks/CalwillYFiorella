@@ -53,70 +53,59 @@ const createFeatureBox = () => {
 
 // Products
 const createProductsNav = () => {
-    items = '';
-    
-    for (let i = 0; i < arrProducts.length; i++) {
-        items += `
-            <li class="nav-item" role="presentation">
-                <button class="nav-link${i === 0 ? " active" : ""}" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="${i === 0 ? "true" : "false"}">${arrProducts[i].title}</button>
-            </li>
-        `;
-    }
-
     return `
         <ul class="nav nav-pills justify-content-center mb-4" id="productsTab" role="tablist">
-            ${items}
+            ${arrProducts.map((product, i) => {
+                return `
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link${i === 0 ? " active" : ""}" id="${product.id}-tab" data-bs-toggle="pill" data-bs-target="#${product.id}" type="button" role="tab" aria-controls="${product.id}" aria-selected="${i === 0 ? "true" : "false"}">${product.title}</button>
+                    </li>
+                `;
+            }).join('')}
         </ul>
     `;
 };
 
 const createProductsContainers = () => {
-    let html = '';
-    for (let i = 0; i < arrProducts.length; i++) {
-        html += `
-            <div class="tab-pane fade show${i === 0 ? " active" : ""}" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
+    return arrProducts.map((product, i) => {
+        return `
+            <div class="tab-pane fade show${i === 0 ? " active" : ""}" id="${product.id}" role="tabpanel" aria-labelledby="${product.id}-tab">
                 <div class="row">
-                    ${createCarousel(i)}
+                    ${createCarousel(product, i)}
                 </div>
             </div>
         `;
-    }
-    return html;
+    }).join('');
 };
 
-const createCarousel = (i) => {
-    let html = '';
-    for (let j = 0; j < arrProducts[i].cards.length; j++) {
-        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
-        html += `
+const createCarousel = (product, i) => {
+    return product.cards.map((card, j) => {
+        const id = `carousel-${product.id}-product${j+1}`;
+        return `
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card product-card">
                     <div id="${id}" class="carousel slide" data-bs-ride="carousel">
-                        ${createCarouselImages(i, j)}
+                        ${createCarouselImages(product, card, i, j)}
                         ${createCarouselButtons(id, 'prev')}
                         ${createCarouselButtons(id, 'next')}
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
-                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
+                        <h5 class="card-title">${card.title}</h5>
+                        <p class="card-text">${card.description}</p>
                     </div>
                 </div>
-            </div>        
+            </div>
         `;
-    }
-    return html;
+    }).join('');
 };
 
-const createCarouselImages = (i, j) => {
-    const totalImages = arrProducts[i].cards[j].carouselImages;
-    
+const createCarouselImages = (product, card, i, j) => {
     let html = `<div class="carousel-inner">`;
     
-    for (let k = 0; k < totalImages; k++){
-        html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
-
+    for (let k = 0; k < card.carouselImages; k++){
         html += `
-                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
+            <div class="carousel-item${k === 0 ? ' active' : ''}">
+                <img src="${imagesPath}productsContainer/${product.id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
             </div>
         `;
     } 
@@ -619,15 +608,18 @@ const arrSocialMedia = [
 // ===== FUNCIONES DE VALIDACIÓN Y AUXILIARES =====
 const nameValidation = (inputName) => {
     const cleanedName = inputName.value.trim();
+    
     if (!nameRegex.test(cleanedName)) {
         alert('El nombre solo puede contener letras y espacios.');
         return false;
     }
+    
     return cleanedName.toUpperCase(); // Convertir a mayúsculas
 };
 
 const phoneNumberValidation = (inputPhoneNumber) => {
     const cleanedPhoneNumber = inputPhoneNumber.value.trim().replace(/\D/g, '');
+    
     if (!phoneNumberRegex.test(cleanedPhoneNumber)) {
         alert('El número de teléfono no puede contener espacios ni guines, y debe tener 10 caracteres.');
         return false;
@@ -638,10 +630,12 @@ const phoneNumberValidation = (inputPhoneNumber) => {
 
 const messageValidation = (inputMessage) => {
     const cleanedMessage = inputMessage.value.trim();
+    
     if (!messageRegex.test(cleanedMessage)) {
         alert('El mensaje no puede contener caracteres especiales.');
         return false;
     }
+    
     return cleanedMessage; 
 };
 
@@ -651,8 +645,11 @@ const getSocialMediaItem = name => arrSocialMedia.find(item => item.name === nam
 const fillBody = () => {
     arrContainers.forEach(container => {
         if (container.function) {
+            
             const containerElement = document.getElementById(container.id);
+            
             if (!containerElement) console.error(`Elemento con id "${container.id}" no encontrado.`);
+            
             container.function(container,containerElement);
         }
     });
@@ -677,9 +674,7 @@ contacForm.addEventListener('submit', function(e) {
     const cleanedPhoneNumber = phoneNumberValidation(inputPhoneNumber);
     const cleanedMessage = messageValidation(inputMessage);
 
-    if (!cleanedName || !cleanedPhoneNumber || !cleanedMessage) {
-        return;
-    }
+    if (!cleanedName || !cleanedPhoneNumber || !cleanedMessage) return;
 
     const whatsappLinkPhoneNumber = `https://wa.me/549${cleanedPhoneNumber}`;
     
