@@ -1,4 +1,10 @@
 // ===== IMPORTS =====
+import SocialMedia          from './classes/arrays/SocialMedia.js';
+import InfoCardContent      from './classes/arrays/InfoCardContent.js';
+import SocialMediaButton    from './classes/utils/SocialMediaButton.js';
+import ContactInfoCard      from './classes/utils/ContactInfoCard.js';
+import ContactForm          from './classes/utils/ContactForm.js';
+import PayMethodItem        from './classes/utils/PayMethodItem.js';
 
 // ===== CONSTANTES GLOBALES =====
 const globalInfo = {
@@ -53,7 +59,7 @@ const createFeatureBox = () => {
 
 // Products
 const createProductsNav = () => {
-    items = '';
+    let items = '';
     
     for (let i = 0; i < arrProducts.length; i++) {
         items += `<li class="nav-item" role="presentation">`;
@@ -159,77 +165,24 @@ const createShippingOption = (i) => {
 
 // Pay Methods
 const createPayMethodsList = () => {
-    return `
-        <ul class="list-unstyled">
-            ${arrPayMethods.map(method => `
-                <li>
-                    ${method}
-                </li>`).join('')}
-        </ul>
-    `;
+    return new PayMethodItem(arrPayMethods).generateList();
 };
 
 // Contact Form and Info Card
 const createContactForm = () => {
-    return `
-        <form id="contact-form" action="https://formsubmit.co/${globalInfo.email}" method="POST">
-            <!-- Campos ocultos de FormSubmit -->
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://blackanvilsoftworks.github.io/CalwillYFiorella/#contact-form-container">
-            <input type="hidden" name="_captcha" value="false">
-            
-            <div class="col-12 col-md-6 mb-3 px-1">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" name="Nombre" class="form-control" id="name" placeholder="Solo letras" required>
-            </div>
-            <div class="col-12 col-md-6 mb-3 px-1">
-                <label for="phone-number" class="form-label">Número de Teléfono</label>
-                <input type="phone-number" name="Teléfono" class="form-control" id="phone-number" placeholder="Sin espacios ni guiones 1122223333" required>
-            </div>
-            <div class="col-12 mb-3">
-                <label for="message" class="form-label">Mensaje</label>
-                <textarea class="form-control" name="Mensaje" id="message" rows="3" placeholder="Recibirá una respuesta vía WhatsApp lo más pronto posible." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    `;
+    return new ContactForm(globalInfo.email).getContactForm();
 };
 
 const createContactInfoCard = () => {
-    return `
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xxl-6 ms-auto">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Información de Contacto</h5>
-                    <div class="container">
-                        ${createContactInfoCardItems()}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-};
-
-const createContactInfoCardItems = () => {
-    return arrInfoCardContent.map(item => `
-        <div class="row mb-2">
-            <div class="col-1"><i class="${item.icon}"></i></div>
-            <div class="col-11">${item.type}: ${item.value}</div>
-        </div>
-    `).join('');
+    return new ContactInfoCard(arrInfoCardContent).getContactInfoCard();
 };
 
 // Footer
 const createSocialMediaButton = () => {
     return `
-        ${arrSocialMedia.map(media => `
-            <div class="col-12 col-sm-6 mb-3">
-                <button type="button" class="btn btn-outline-${media.color} w-100" id="${media.name}-btn">
-                    <i class="bi bi-${media.name}"></i> ${media.name.charAt(0).toUpperCase() + media.name.slice(1)}
-                </button>
-            </div>
-        `).join('')}
+        ${arrSocialMedia.map(media => {
+            return new SocialMediaButton(media.name, media.color).getSocialMediaButton();
+        }).join('')}
     `;
 };
 
@@ -605,39 +558,9 @@ const arrPayMethods = [
     'Efectivo (10% de descuento)'
 ];
 
-const arrInfoCardContent = [
-    {
-        type: 'Email',
-        value: globalInfo.email,
-        icon: 'bi bi-envelope-fill'
-    },
-    {
-        type: 'Teléfono',
-        value: globalInfo.phoneNumber,
-        icon: 'bi bi-telephone-fill'
-    },
-    {
-        type: 'Horario',
-        value: 'Lunes a Sábado de 09:00 a 18:00',
-        icon: 'bi bi-clock-fill'
-    }
-];
+const arrInfoCardContent = new InfoCardContent(globalInfo.email, globalInfo.phoneNumber).getInfoCardContent();
 
-const arrSocialMedia = [
-    {
-        name: 'facebook',
-        icon: 'bi bi-facebook',
-        color: 'primary',
-        url: 'https://www.facebook.com/share/16FkGbSYi4/?mibextid=wwXIfr'
-    },
-    {
-        name: 'whatsapp',
-        icon: 'bi bi-whatsapp',
-        color: 'success',
-        url: `https://wa.me/${globalInfo.phoneNumber.replace(/\D/g, '')}` // Quita todo lo que no sea número y que busque el array por tipo y no porindex
-
-    }
-];
+const arrSocialMedia = new SocialMedia(globalInfo.phoneNumber).getSocialMedia();
 
 // ===== FUNCIONES DE VALIDACIÓN =====
 const nameValidation = (inputName) => {
