@@ -6,6 +6,13 @@ import ContactInfoCard      from './classes/utils/ContactInfoCard.js';
 import ContactForm          from './classes/utils/ContactForm.js';
 import PayMethodItem        from './classes/utils/PayMethodItem.js';
 
+import { createTitle }      from './classes/utils/createTitle.js';
+
+import Navbar               from './classes/containers/Navbar.js';
+import HeroSection          from './classes/containers/HeroSection.js';
+import AboutUs              from './classes/containers/AboutUs.js';
+import Feature from './classes/containers/Feature.js';
+
 // ===== CONSTANTES GLOBALES =====
 const globalInfo = {
     name: 'calwill & fiorella',
@@ -20,42 +27,42 @@ const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se meta
 
 // ===== FUNCIONES DE CREACIÓN =====
 // Uso General
-const createTitles = (title, icon) => {
-    return `
-        <span class="titles">
-            ${title}
-            <i class="${icon}"></i>
-        </span>
-    `;
-};
+// const createTitle = (title, icon) => {
+//     return `
+//         <span class="titles">
+//             ${title}
+//             <i class="${icon}"></i>
+//         </span>
+//     `;
+// };
 
 // Navbar
-const createNavbarItems = () => {
-    return arrContainers.map(item => {
-        if (item.navbar){
-            return `
-                <li class="nav-item">
-                    <a class="nav-link" href="#${item.id}">${item.navbar}</a>
-                </li>
-            `;
-        }
-    }).join('');
-};
+// const createNavbarItems = () => {
+//     return arrContainers.map(item => {
+//         if (item.navbar){
+//             return `
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="#${item.id}">${item.navbar}</a>
+//                 </li>
+//             `;
+//         }
+//     }).join('');
+// };
 
 // Features
-const createFeatureBox = () => {
-    return arrFeatures.map(feature => `
-        <div class="col-12 col-md-4 mb-4 px-3">
-            <div class="feature-box">
-                <div class="feature-icon">
-                    <i class="${feature.icon}"></i>
-                </div>
-                <h3>${feature.title}</h3>
-                <p>${feature.description}</p>
-            </div>
-        </div>
-    `).join('');
-};
+// const createFeatureBox = () => {
+//     return arrFeatures.map(feature => `
+//         <div class="col-12 col-md-4 mb-4 px-3">
+//             <div class="feature-box">
+//                 <div class="feature-icon">
+//                     <i class="${feature.icon}"></i>
+//                 </div>
+//                 <h3>${feature.title}</h3>
+//                 <p>${feature.description}</p>
+//             </div>
+//         </div>
+//     `).join('');
+// };
 
 // Products
 const createProductsNav = () => {
@@ -188,74 +195,20 @@ const createSocialMediaButton = () => {
 
 // ===== FUNCIONES DE LLENADO =====
 const fillNavbar = (obj) => {
-    const container = document.getElementById(obj.id);    
-    container.innerHTML = `
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#${obj.id}">
-                <img src="./assets/navbar-logo.png" alt="${globalInfo.name} Logo" height="40" class="d-inline-block align-text-top me-2">
-                <span class="ms-2 navbar-title">${globalInfo.name.toUpperCase()}</span>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-center ps-auto" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    ${createNavbarItems()}
-                </ul>
-            </div>
-        </div>
-    `;
+    document.getElementById(obj.id).innerHTML = new Navbar(obj.id, globalInfo.name, arrContainers).getNavbar();
 }; 
 
-const fillHeroSection = (obj) => {    
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Calzado de Calidad para Toda la Familia</h1>
-            <p class="lead mb-4 fw-semibold">Fabricamos calzado infantil con los mejores materiales y distribuimos calzado para adultos de las mejores marcas.</p>
-            <a href="#products-container" class="btn btn-primary btn-lg">Ver Productos</a>
-        </div>
-    `;
+const fillHeroSection = (obj) => {
+    document.getElementById(obj.id).innerHTML = new HeroSection().getHeroSection();
 };
 
 const fillAboutUsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <div class="row">
-                    <h2 class="col-12">
-                        ${createTitles(obj.title, obj.icon)}
-                    </h2>
-                    <div class="col-12 col-md-5 col-lg-5 align-content-center">
-                        <img src="${imagesPath}logo.jpg" class="img-fluid" alt="${globalInfo.name} Logo">
-                    </div>
-                    <div class="col-12 col-md-7 col-lg-7 px-5 align-self-center">
-                        <p>En Calwill & Fiorella nos especializamos en la fabricación de calzado infantil de la más alta calidad, con diseños únicos y materiales sostenibles.</p>
-                        <p>Calwill y Fiorella es una empresa dedicada a ofrecer productos de alta calidad con un enfoque en la sostenibilidad y el diseño innovador. Nuestro compromiso es brindar lo mejor a nuestros clientes, combinando tradición y modernidad.</p>
-                        <p>Además, somos distribuidores de calzado para hombres y mujeres, ofreciendo una amplia variedad de estilos y tallas para toda la familia.</p>
-                        <p>Nuestra misión es proporcionar calzado cómodo, durable y a la moda que satisfaga las necesidades de nuestros clientes.</p>    
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    document.getElementById(obj.id).innerHTML = new AboutUs(globalInfo.name, obj.title, obj.icon, imagesPath).getAboutUs();
 }; 
 
 const fillFeaturesContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <div class="row">
-                    <h2 class="section-title text-center mb-4">
-                        ${createTitles(obj.title, obj.icon)}
-                    </h2>
-                    ${createFeatureBox()}
-                </div>
-            </div>
-        </div>
-    `;
+    document.getElementById(obj.id).innerHTML = new Feature(obj.title, obj.icon).getFeature();
+    
 };
 
 const fillProductsContainer = (obj) => {
@@ -265,7 +218,7 @@ const fillProductsContainer = (obj) => {
             <div class="col-10 col-lg-12 px-lg-5">
                 <div class="row">
                     <h2 class="text-center">
-                        ${createTitles(obj.title, obj.icon)}
+                        ${createTitle(obj.title, obj.icon)}
                     </h2>
                     ${createProductsNav()}
                     <div class="tab-content" id="productsTabContent">
@@ -285,7 +238,7 @@ const fillShippingContainer = (obj) => {
                 <div class="row mx-3 mx-sm-5 px-3 ">
                     <div class="col-md-12">
                         <h2 class="mb-4">
-                            ${createTitles(obj.title, obj.icon)}
+                            ${createTitle(obj.title, obj.icon)}
                         </h2>
                     </div>        
                     <div class="col-12 col-md-4 my-3 my-md-0 px-3">
@@ -310,7 +263,7 @@ const fillPayMethodsContainer = (obj) => {
     const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="mb-4">
-            ${createTitles(obj.title, obj.icon)}
+            ${createTitle(obj.title, obj.icon)}
         </h2>
         <p>Aceptamos los siguientes métodos de pago:</p>
         ${createPayMethodsList()}
@@ -321,7 +274,7 @@ const fillContactFormContainer = (obj) => {
     const container = document.getElementById(obj.id);
     container.innerHTML = `
         <h2 class="text-center mb-4">
-            ${createTitles(obj.title, obj.icon)}
+            ${createTitle(obj.title, obj.icon)}
         </h2>
         <div class="row" id="form-row">
             ${createContactForm()}
@@ -502,23 +455,23 @@ const arrProducts = [
     }
 ];
 
-const arrFeatures = [
-    {
-        icon: 'bi bi-star-fill',
-        title: 'Calidad Premium',
-        description: 'Utilizamos materiales de primera calidad para garantizar la durabilidad y comodidad de nuestro calzado.'
-    },
-    {
-        icon: 'bi bi-tree-fill',
-        title: 'Materiales Sustentables',
-        description: 'Nos preocupamos por el medio ambiente utilizando materiales ecológicos y procesos sostenibles.'
-    },
-    {
-        icon: 'bi bi-heart-fill',
-        title: 'Hecho con Amor',
-        description: 'Cada par de zapatos es fabricado con dedicación y atención a los detalles.'
-    }
-];
+// const arrFeatures = [
+//     {
+//         icon: 'bi bi-star-fill',
+//         title: 'Calidad Premium',
+//         description: 'Utilizamos materiales de primera calidad para garantizar la durabilidad y comodidad de nuestro calzado.'
+//     },
+//     {
+//         icon: 'bi bi-tree-fill',
+//         title: 'Materiales Sustentables',
+//         description: 'Nos preocupamos por el medio ambiente utilizando materiales ecológicos y procesos sostenibles.'
+//     },
+//     {
+//         icon: 'bi bi-heart-fill',
+//         title: 'Hecho con Amor',
+//         description: 'Cada par de zapatos es fabricado con dedicación y atención a los detalles.'
+//     }
+// ];
 
 const arrShippingOptions = [
     {
