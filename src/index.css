@@ -94,7 +94,10 @@ body {
 
 /*Hero Section*/
 .hero-section {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1)), url('./../src/assets/images/heroSection/hero.jpg');
+  background: linear-gradient(
+    rgba(0,0,0,0.6), 
+    rgba(0,0,0,0.1)
+  ), url('./../src/assets/images/heroSection/hero.jpg');
   background-size: cover;
   background-position: center;
   color: var(--primary-background-color);
