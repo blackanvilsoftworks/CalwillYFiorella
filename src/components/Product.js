@@ -36,7 +36,7 @@ export default class Product {
                 ${arrProducts.map((product, i) => {
                     return `
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link${i === 0 ? " active" : ""}" id="${product.id}-tab" data-bs-toggle="pill" data-bs-target="#${product.id}" type="button" role="tab" aria-controls="${product.id}" aria-selected="${i === 0 ? "true" : "false"}">${product.title}</button>
+                            <button class="nav-link btn-primary${i === 0 ? " active" : ""}" id="${product.id}-tab" data-bs-toggle="pill" data-bs-target="#${product.id}" type="button" role="tab" aria-controls="${product.id}" aria-selected="${i === 0 ? "true" : "false"}">${product.title}</button>
                         </li>
                     `;
                 }).join('')}
