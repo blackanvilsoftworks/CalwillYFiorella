@@ -1,6 +1,6 @@
 # CalwillYFiorella
 
-v2.0 
+v1.1.0 
 
 Este es un sitio web estático destinado a la presentación de una marca, muestra de productos y contacto con el dueño.
 
@@ -11,8 +11,10 @@ Se utilizaron las siguientes herramientas:
   - HTML: Solo para el esqueleto del sitio.
   - Bootstrap: Se aplicó Navbar, Cards, Carousel, entre otros.
   - CSS: Para estilos personalizados.
-  - JavaScript: En esta ocación, todo el contenido del sitio fue modularizado dentro de un mismo archivo, a modo de autogenerar estructuras repetitivas.
+  - JavaScript: Aplicando POO.
   - DeepSeek: Para consultas.
 
-Objetivos para v3.0:
-  1. Implementar POO mediante modularización en componentes reutilizables con estructura de carpetas escalabale.
+Objetivos para próximas versiones:
+  1. Conectar la web con Supabase a fin de que tome la información dese allí y no esté hardcodeada.
+  2. Generar un apartado con login para que los administradores pueda modificar la información y contenido.
+  3. Implementar Reack.
