@@ -1,556 +1,57 @@
-// ===== IMPORTS =====
-import SocialMedia          from './classes/arrays/SocialMedia.js';
-import InfoCardContent      from './classes/arrays/InfoCardContent.js';
-import SocialMediaButton    from './classes/utils/SocialMediaButton.js';
-import ContactInfoCard      from './classes/utils/ContactInfoCard.js';
-import ContactForm          from './classes/utils/ContactForm.js';
-import PayMethodItem        from './classes/utils/PayMethodItem.js';
+/* ===== IMPORTS ===== */
 
-import { createTitle }      from './classes/utils/createTitle.js';
+/* ===== UTILS ===== */
 
-import Navbar               from './classes/containers/Navbar.js';
-import HeroSection          from './classes/containers/HeroSection.js';
-import AboutUs              from './classes/containers/AboutUs.js';
-import Feature from './classes/containers/Feature.js';
+// ===== ARRAYS =====
+import {
+    arrContainers,
+} from './utils/arrays.js';
 
-// ===== CONSTANTES GLOBALES =====
-const globalInfo = {
-    name: 'calwill & fiorella',
-    phoneNumber: '+54 9 11-5959-0586',
-    email: 'calwillyfiorella@gmail.com'
-};
+// ===== EVENT LISTENERS =====
+import {
+    facebookBtnHandler,
+    whatsappBtnHandler
+} from './utils/eventListeners.js';
 
-const imagesPath = './src/assets/images/';
-const nameRegex = /^[A-Za-z\s]+$/;
-const phoneNumberRegex = /^[0-9]{10}$/;
-const messageRegex = /^[A-Za-z0-9\-\s]/g; // todo Que esto valide que no se metan símbolos extraños. Que se puedan poner , y .
+// ===== VALIDACIONES =====
+import { 
+    nameValidation, 
+    phoneNumberValidation, 
+    messageValidation 
+} from './utils/validations.js';
 
-// ===== FUNCIONES DE CREACIÓN =====
-// Uso General
-// const createTitle = (title, icon) => {
-//     return `
-//         <span class="titles">
-//             ${title}
-//             <i class="${icon}"></i>
-//         </span>
-//     `;
-// };
 
-// Navbar
-// const createNavbarItems = () => {
-//     return arrContainers.map(item => {
-//         if (item.navbar){
-//             return `
-//                 <li class="nav-item">
-//                     <a class="nav-link" href="#${item.id}">${item.navbar}</a>
-//                 </li>
-//             `;
-//         }
-//     }).join('');
-// };
-
-// Features
-// const createFeatureBox = () => {
-//     return arrFeatures.map(feature => `
-//         <div class="col-12 col-md-4 mb-4 px-3">
-//             <div class="feature-box">
-//                 <div class="feature-icon">
-//                     <i class="${feature.icon}"></i>
-//                 </div>
-//                 <h3>${feature.title}</h3>
-//                 <p>${feature.description}</p>
-//             </div>
-//         </div>
-//     `).join('');
-// };
-
-// Products
-const createProductsNav = () => {
-    let items = '';
-    
-    for (let i = 0; i < arrProducts.length; i++) {
-        items += `<li class="nav-item" role="presentation">`;
-        if (i === 0) {
-            // First tab is active
-            items += `
-                <button class="nav-link active" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="true">${arrProducts[i].title}</button>
-            `;
-        } else {
-            items += `
-                <button class="nav-link" id="${arrProducts[i].id}-tab" data-bs-toggle="pill" data-bs-target="#${arrProducts[i].id}" type="button" role="tab" aria-controls="${arrProducts[i].id}" aria-selected="false">${arrProducts[i].title}</button>
-            `;
-        }
-        items += `</li>`;
-    }
-
-    return `
-        <ul class="nav nav-pills justify-content-center mb-4" id="productsTab" role="tablist">
-            ${items}
-        </ul>
-    `;
-};
-
-const createProductsContainers = () => {
-    let html = '';
-    for (let i = 0; i < arrProducts.length; i++) {
-        if (i === 0) {
-            html += `
-                <div class="tab-pane fade show active" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        } else {
-            html += `
-                <div class="tab-pane fade show" id="${arrProducts[i].id}" role="tabpanel" aria-labelledby="${arrProducts[i].id}-tab">
-            `;
-        }
-        html += `
-            <div class="row">
-                ${createCarousel(i)}
-            </div>
-        </div>`;
-    }
-    return html;
-};
-
-const createCarousel = (i) => {
-    let html = '';
-    for (let j = 0; j < arrProducts[i].cards.length; j++) {
-        let id = `carousel-${arrProducts[i].id}-product${j+1}`;
-        html += `
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card product-card">
-                    <div id="${id}" class="carousel slide" data-bs-ride="carousel">
-                        ${createCarouselImages(i, j)}
-                        ${createCarouselButtons(id, 'prev')}
-                        ${createCarouselButtons(id, 'next')}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">${arrProducts[i].cards[j].title}</h5>
-                        <p class="card-text">${arrProducts[i].cards[j].description}</p>
-                    </div>
-                </div>
-            </div>        
-        `;
-    }
-    return html;
-};
-
-const createCarouselImages = (i, j) => {
-    const totalImages = arrProducts[i].cards[j].carouselImages;
-    
-    let html = `<div class="carousel-inner">`;
-    
-    for (let k = 0; k < totalImages; k++){
-        html += (k === 0) ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
-
-        html += `
-                <img src="${imagesPath}productsContainer/${arrProducts[i].id}/product${j+1}_img${k+1}.jpg" class="d-block w-100" alt="Imagen ${k+1}" />
-            </div>
-        `;
-    } 
-
-    html += `</div>`;
-        
-    return html;
-};
-
-const createCarouselButtons = (id, prevOrNext) => {
-    return `
-        <button class="carousel-control-${prevOrNext}" type="button" data-bs-target="#${id}" data-bs-slide="${prevOrNext}">
-            <span class="carousel-control-${prevOrNext}-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">${prevOrNext === 'next' ? 'Next' : 'Previous'}</span>
-        </button>
-    `;
-};
-
-// Shipping
-const createShippingOption = (i) => {
-    return `
-        <h4 class="subtitles">${arrShippingOptions[i].subtitle}</h4>
-        ${arrShippingOptions[i].description.map(desc => `<p>${desc}</p>`).join('')}
-        `;
-};
-
-// Pay Methods
-const createPayMethodsList = () => {
-    return new PayMethodItem(arrPayMethods).generateList();
-};
-
-// Contact Form and Info Card
-const createContactForm = () => {
-    return new ContactForm(globalInfo.email).getContactForm();
-};
-
-const createContactInfoCard = () => {
-    return new ContactInfoCard(arrInfoCardContent).getContactInfoCard();
-};
-
-// Footer
-const createSocialMediaButton = () => {
-    return `
-        ${arrSocialMedia.map(media => {
-            return new SocialMediaButton(media.name, media.color).getSocialMediaButton();
-        }).join('')}
-    `;
-};
-
-// ===== FUNCIONES DE LLENADO =====
-const fillNavbar = (obj) => {
-    document.getElementById(obj.id).innerHTML = new Navbar(obj.id, globalInfo.name, arrContainers).getNavbar();
-}; 
-
-const fillHeroSection = (obj) => {
-    document.getElementById(obj.id).innerHTML = new HeroSection().getHeroSection();
-};
-
-const fillAboutUsContainer = (obj) => {
-    document.getElementById(obj.id).innerHTML = new AboutUs(globalInfo.name, obj.title, obj.icon, imagesPath).getAboutUs();
-}; 
-
-const fillFeaturesContainer = (obj) => {
-    document.getElementById(obj.id).innerHTML = new Feature(obj.title, obj.icon).getFeature();
-    
-};
-
-const fillProductsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <div class="row justify-content-center">
-            <div class="col-10 col-lg-12 px-lg-5">
-                <div class="row">
-                    <h2 class="text-center">
-                        ${createTitle(obj.title, obj.icon)}
-                    </h2>
-                    ${createProductsNav()}
-                    <div class="tab-content" id="productsTabContent">
-                        ${createProductsContainers()}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-};
-
-const fillShippingContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <div class="row justify-content-center"> <!-- Centramos la fila -->
-            <div class="col-12 col-md-10"> <!-- Limitamos el ancho en pantallas grandes -->
-                <div class="row mx-3 mx-sm-5 px-3 ">
-                    <div class="col-md-12">
-                        <h2 class="mb-4">
-                            ${createTitle(obj.title, obj.icon)}
-                        </h2>
-                    </div>        
-                    <div class="col-12 col-md-4 my-3 my-md-0 px-3">
-                        ${createShippingOption(0)}
-                    </div>
-                    <div class="col-12 col-md-4 mb-3 my-md-0 px-3">
-                        ${createShippingOption(1)}
-                    </div>
-                    <div class="col-12 col-md-4 my-md-0 px-3">
-                        ${createShippingOption(2)}
-                    </div>
-                    <div class="col-12 col-md-8 p-3 shipping-rules-container rounded-3">
-                        ${createShippingOption(3)}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-};
-
-const fillPayMethodsContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <h2 class="mb-4">
-            ${createTitle(obj.title, obj.icon)}
-        </h2>
-        <p>Aceptamos los siguientes métodos de pago:</p>
-        ${createPayMethodsList()}
-    `;
-};
-
-const fillContactFormContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `
-        <h2 class="text-center mb-4">
-            ${createTitle(obj.title, obj.icon)}
-        </h2>
-        <div class="row" id="form-row">
-            ${createContactForm()}
-        </div>
-        <div class="row mt-3">
-            ${createContactInfoCard()}
-        </div>
-    `;
-};
-
-const fillFooterContainer = (obj) => {
-    const container = document.getElementById(obj.id);
-    container.innerHTML = `    
-        <div class="container pt-0">
-            <div class="row justify-content-center"> <!-- Centramos la fila -->
-                <div class="col-12 col-md-8"> <!-- Limitamos el ancho en pantallas grandes -->
-                    <div class="row">
-                        ${createSocialMediaButton()}
-                    </div>                    
-                    <hr>                    
-                    <div class="row">
-                        <div class="col-12">
-                            <h5>Calwill & Fiorella</h5>
-                            <p>Fabricantes de calzado infantil y distribuidores de calzado para adultos. Calidad, comodidad y estilo para toda la familia.</p>
-                        </div>
-                    </div>                    
-                </div>
-            </div>
-        </div>
-    `;
-};
-
-// ===== ARRAYS DE DATOS =====
-const arrContainers =[
-    {
-        id: 'navbar-container',
-        navbar: null,
-        title: null,
-        icon: null,
-        function: fillNavbar
-    },
-    {
-        id: 'hero-section',
-        navbar: 'Inicio',
-        title: null,
-        icon: null,
-        function: fillHeroSection
-    },
-    {
-        id: 'about-us-container',
-        navbar: 'Sobre Nosotros',
-        title: 'Sobre Nosotros',
-        icon: 'bi bi-balloon-heart',
-        function: fillAboutUsContainer
-    },
-    {
-        id: 'features-container',
-        navbar: 'Características',
-        title: '¿Por Qué Elegirnos?',
-        icon: 'bi bi-person-raised-hand',
-        function: fillFeaturesContainer
-    },
-    {
-        id: 'products-container',
-        navbar: 'Productos',
-        title: 'Nuestros Productos',
-        icon: 'bi bi-cart',
-        function: fillProductsContainer
-    },
-    {
-        id: 'shipping-container',
-        navbar: 'Envíos',
-        title: 'Opciones de Envío',
-        icon: 'bi bi-rocket-takeoff',
-        function: fillShippingContainer
-    },
-    {
-        id: 'pay-methods-container',
-        navbar: 'Pagos',
-        title: 'Métodos de Pago',
-        icon: 'bi bi-cash-coin',
-        function: fillPayMethodsContainer
-    },
-    {
-        id: 'contact-form-container',
-        navbar: 'Contacto',
-        title: 'Contáctanos',
-        icon: 'bi bi-mailbox-flag',
-        function: fillContactFormContainer
-    },
-    {
-        id: 'footer-container',
-        navbar: null,
-        title: null,
-        icon: null,
-        function: fillFooterContainer
-    }
-];
-
-const arrProducts = [
-    {
-        id:'children',
-        title: 'Calzado Infantil',
-        cards: [
-            {
-                title: 'Zapatos para Niño',
-                description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Niña',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Bebé',
-                description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Niño',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            }
-        ]
-    },
-    {
-        id:'women',
-        title: 'Calzado para Mujeres',
-        cards: [
-            {
-                title: 'Zapatos para Mujer',
-                description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Mujer',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Mujer',
-                description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Mujer',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            }
-        ]
-    },
-    {
-        id:'men',
-        title: 'Calzado para Hombres',
-        cards: [
-            {
-                title: 'Zapatos para Hombres',
-                description: 'Zapatos cómodos y resistentes para los más pequeños, disponibles en varios colores.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Hombres',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Hombres',
-                description: 'Suaves y flexibles zapatos para bebés, diseñados para no molestar sus pies en desarrollo.',
-                carouselImages: 3
-            },
-            {
-                title: 'Zapatos para Hombres',
-                description: 'Bonitos y cómodos zapatos para niñas, perfectos para ocasiones especiales y uso diario.',
-                carouselImages: 3
-            }
-        ]
-    }
-];
-
-// const arrFeatures = [
-//     {
-//         icon: 'bi bi-star-fill',
-//         title: 'Calidad Premium',
-//         description: 'Utilizamos materiales de primera calidad para garantizar la durabilidad y comodidad de nuestro calzado.'
-//     },
-//     {
-//         icon: 'bi bi-tree-fill',
-//         title: 'Materiales Sustentables',
-//         description: 'Nos preocupamos por el medio ambiente utilizando materiales ecológicos y procesos sostenibles.'
-//     },
-//     {
-//         icon: 'bi bi-heart-fill',
-//         title: 'Hecho con Amor',
-//         description: 'Cada par de zapatos es fabricado con dedicación y atención a los detalles.'
-//     }
-// ];
-
-const arrShippingOptions = [
-    {
-        subtitle: 'Retiros en Estación Llavallol',
-        description: [
-            'En caso que deseen retirarlo, se realiza la entrega de manera gratuita en el hall de la estación de tren de Llavallol, coordinando día y horario por WhatsApp.'
-        ]
-    },
-    {
-        subtitle: 'Envíos en GBA',
-        description: [
-            'Envío mediante repartidor con un costo adicional. El costo depende de la zona.',
-            'En caso de seleccionar envío, se deberá abonar el mismo en su totalidad por transeferencia a Mercado Pago el mismo día a modo de anticipo, previo a la salida del repartidor.'
-        ]
-    },
-    {
-        subtitle: 'Envíos al Resto del País',
-        description: [
-            'Envío mediante Correo Argentino.',
-            'Envío mediante OCA.',
-            'Envío mediante Andreani.',
-            'Envío mediante otras empresas de logística.'
-        ]
-    },
-    {
-        subtitle: 'Reglas de Envío',
-        description: [
-            'Se coordinará día y horario vía WhatsApp, una vez esté el repartidor en el lugar y hora acordado, se tendrá una tolerancia de 15 minutos.',
-            'En caso de sobrepasar el tiemo de tolerancia, el pago no es reembolsable, y el repartidor coninuará con el resto de entregas, debiendose pactar una nueva fecha y horario.',
-            'Dependiendo de la demanda, podría coordinarse para ese mismo día. En cualquier caso, se deberá abonar una nueva cuota de envío.'
-        ]
-    }
-];
-
-const arrPayMethods = [
-    'Transferencia bancaria a cuenta de Mercado Pago',
-    'Efectivo (10% de descuento)'
-];
-
-const arrInfoCardContent = new InfoCardContent(globalInfo.email, globalInfo.phoneNumber).getInfoCardContent();
-
-const arrSocialMedia = new SocialMedia(globalInfo.phoneNumber).getSocialMedia();
-
-// ===== FUNCIONES DE VALIDACIÓN =====
-const nameValidation = (inputName) => {
-    const cleanedName = inputName.value.trim();
-    if (!nameRegex.test(cleanedName)) {
-        alert('El nombre solo puede contener letras y espacios.');
-        return false;
-    }
-    return cleanedName.toUpperCase(); // Convertir a mayúsculas
-};
-
-const phoneNumberValidation = (inputPhoneNumber) => {
-    const cleanedPhoneNumber = inputPhoneNumber.value.trim().replace(/\D/g, '');
-    if (!phoneNumberRegex.test(cleanedPhoneNumber)) {
-        alert('El número de teléfono no puede contener espacios ni guines, y debe tener 10 caracteres.');
-        return false;
-    }
-    
-    return cleanedPhoneNumber; 
-};
-
-const messageValidation = (inputMessage) => {
-    const cleanedMessage = inputMessage.value.trim();
-    if (!messageRegex.test(cleanedMessage)) {
-        alert('El mensaje no puede contener caracteres especiales.');
-        return false;
-    }
-    return cleanedMessage; 
-};
+/* ===== COMPONENTS ===== */
+import Navbar      from './components/Navbar.js';
+import HeroSection from './components/HeroSection.js';
+import AboutUs     from './components/AboutUs.js';
+import Feature     from './components/Feature.js';
+import Product     from './components/Product.js';
+import Shipping    from './components/Shipping.js';
+import PayMethod   from './components/PayMethod.js';
+import ContactForm from './components/ContactForm.js';
+import Footer      from './components/Footer.js';
 
 // ===== INICIALIZACIÓN =====
 const fillBody = () => {
-    arrContainers.forEach(container => {
-        if (container.function) {        
-            container.function(container);
-        }
-    });
+    let obj = arrContainers[0];
+    document.getElementById(obj.id).innerHTML = new Navbar(obj.id).getNavbar();
+    obj = arrContainers[1];
+    document.getElementById(obj.id).innerHTML = new HeroSection().getHeroSection();
+    obj = arrContainers[2];
+    document.getElementById(obj.id).innerHTML = new AboutUs(obj.title, obj.icon).getAboutUs();
+    obj = arrContainers[3];
+    document.getElementById(obj.id).innerHTML = new Feature(obj.title, obj.icon).getFeature();
+    obj = arrContainers[4];
+    document.getElementById(obj.id).innerHTML = new Product(obj.title, obj.icon).getProduct();
+    obj = arrContainers[5];
+    document.getElementById(obj.id).innerHTML = new Shipping(obj.title, obj.icon).getShipping();
+    obj = arrContainers[6];
+    document.getElementById(obj.id).innerHTML = new PayMethod(obj.title, obj.icon).getPayMethods();
+    obj = arrContainers[7];
+    document.getElementById(obj.id).innerHTML = new ContactForm(obj.title, obj.icon).getContactForm();
+    obj = arrContainers[8];
+    document.getElementById(obj.id).innerHTML = new Footer().getFooter();
 };
 
 fillBody();
@@ -561,7 +62,9 @@ const toFacebookBtn = document.getElementById('facebook-btn');
 const toWhatsappBtn = document.getElementById('whatsapp-btn');
 
 // ===== EVENT LISTENERS =====
-contacForm.addEventListener('submit', function(e) {
+toFacebookBtn.addEventListener('click', facebookBtnHandler);
+toWhatsappBtn.addEventListener('click', whatsappBtnHandler);
+contacForm.addEventListener('submit', e => {
     e.preventDefault();
     
     const inputName = document.getElementById('name');
@@ -580,19 +83,6 @@ contacForm.addEventListener('submit', function(e) {
     
     inputPhoneNumber.value = whatsappLinkPhoneNumber;
 
-    this.submit(); // Esto activa FormSubmit
+    contacForm.submit();
     contacForm.reset();
-});
-
-toFacebookBtn.addEventListener('click', () => {
-    const facebookItem = arrSocialMedia.find(item => item.name === 'facebook');
-    window.open(facebookItem.url, '_blank');
-});
-
-toWhatsappBtn.addEventListener('click', () => {
-    const whatsappItem = arrSocialMedia.find(item => item.name === 'whatsapp');
-    const whatsappName = "NOMBRE_AQUI";
-    const whatsappMessage = "MENSAJE_AQUI";
-    const whatsappURL = `${whatsappItem.url}?text=Hola,%20mi%20nombre%20es%20${encodeURIComponent(whatsappName)}.%20Quería%20consultar%20por%20${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappURL, '_blank');
 });

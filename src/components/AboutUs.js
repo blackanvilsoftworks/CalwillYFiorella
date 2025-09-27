@@ -1,18 +1,20 @@
 import { createTitle } from '../utils/createTitle.js';
+import { 
+    globalInfo, 
+    imagesPath 
+} from '../utils/constants.js';
 
 export default class AboutUs {
-    constructor(name, title, icon, imagesPath) {
-        this.name = name;
+    constructor (title, icon) {
         this.title = title;
         this.icon = icon;
-        this.imagesPath = imagesPath;
     }
 
-    getAboutUs() {
+    getAboutUs () {
         return this.generateAboutUs();
     }
 
-    generateAboutUs() {
+    generateAboutUs () {
         return `
             <div class="row justify-content-center">
                 <div class="col-10">
@@ -21,7 +23,7 @@ export default class AboutUs {
                             ${createTitle(this.title, this.icon)}
                         </h2>
                         <div class="col-12 col-md-5 col-lg-5 align-content-center">
-                            <img src="${this.imagesPath}logo.jpg" class="img-fluid" alt="${this.name} Logo">
+                            <img src="${imagesPath}logo.jpg" class="img-fluid" alt="${globalInfo.name} Logo">
                         </div>
                         <div class="col-12 col-md-7 col-lg-7 px-5 align-self-center">
                             <p>En Calwill & Fiorella nos especializamos en la fabricación de calzado infantil de la más alta calidad, con diseños únicos y materiales sostenibles.</p>
