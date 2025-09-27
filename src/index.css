@@ -27,10 +27,17 @@ body {
   transition: transform 0.3s;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary.active {
   background-color: var(--btn-primary-color);
   border-color: var(--btn-primary-color);
   color: var(--btn-secondary-color);
+  transform: translateY(-5px);
+}
+
+button.nav-link.btn-primary.active {
+  background-color: var(--btn-primary-color) !important;
+  border-color: var(--btn-primary-color) !important;
+  color: var(--btn-secondary-color) !important;
   transform: translateY(-5px);
 }
 
