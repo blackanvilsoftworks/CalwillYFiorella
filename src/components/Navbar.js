@@ -24,9 +24,8 @@ export default class Navbar {
                     <ul class="navbar-nav ms-auto">
                         ${this.createNavbarItems()}
                     </ul>
-                </div>S
-            </div>
-        `;
+                </div>
+            </div>`;
     }
 
     createNavbarItems () {
@@ -35,8 +34,7 @@ export default class Navbar {
                 return `
                     <li class="nav-item">
                         <a class="nav-link" href="#${item.id}">${item.navbar}</a>
-                    </li>
-                `;
+                    </li>`;
             }
         }).join('');
     };
