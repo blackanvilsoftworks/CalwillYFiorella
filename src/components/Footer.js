@@ -26,8 +26,7 @@ export default class Footer {
                         </div>                    
                     </div>
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 
     createSocialMediaButton () {
